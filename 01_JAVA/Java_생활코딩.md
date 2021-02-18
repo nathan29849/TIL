@@ -3,6 +3,7 @@
 C, C++ 등의 기존 언어에서는 각 운영체제별로 서로 다른 코드를 만들고 별도로 컴파일 해야만 실행할 수 있었다.
 
 하지만 JAVA는 하나의 JAVA 코드만 만들면 모든 운영체제에서 동일하게 실행이 가능하다.
+<br/>
 
 ### JAVA 언어의 특징
 
@@ -12,10 +13,11 @@ C, C++ 등의 기존 언어에서는 각 운영체제별로 서로 다른 코드
 4. 멀티스레드 프로그래밍 지원 (복잡한 대용량 작업을 빠른 시간 내에 처리 가능)
 5. 다양한 응용 프로그램 작성 가능
 6. 많은 오픈 소스 라이브러리의 존재 (Apache Commons, Google Guava 등)
+   <br/>
 
 ### JAVA의 작동 원리
 
-<img src="https://images.velog.io/images/nathan29849/post/77be93b3-2293-42ac-93e0-686e5ca15568/image.png" width="60%" >
+<img src="https://images.velog.io/images/nathan29849/post/77be93b3-2293-42ac-93e0-686e5ca15568/image.png" width="50%" >
 
 - compile : 확장자가 .java인 파일을 기계가 이해할 수 있도록 전환하는 역할
   <br/><br/>
@@ -31,6 +33,53 @@ C, C++ 등의 기존 언어에서는 각 운영체제별로 서로 다른 코드
 public class HelloWorldApp { // 우리가 생성한 파일명과 클래스 명이 같아야 함.
     public static void main(String[] args) { // main 이라는 약속된 이름의 메소드를 찾아서 실행시킴
         System.out.println("Hello World!!");
+    }
+}
+```
+
+---
+
+## 데이터와 연산
+
+- Number (+, -, \*, ...)
+- String (length, substring, search, ...)
+- etc
+
+각각의 데이터마다 처리하는 방식(=연산 방식) 이 존재함.
+
+### 숫자와 연산
+
+```
+public class Datatype {
+   public static void main(String[] args) {
+       // Operator(연산자)
+       System.out.println(6 + 2); // 8
+       System.out.println(6 - 2); // 4
+       System.out.println(6 * 2); // 12
+       System.out.println(6 / 2); // 3
+
+       System.out.println(Math.PI); // 3.141592~~
+       System.out.println(Math.floor(Math.PI)); // 3.0
+       System.out.println(Math.ceil(Math.PI)); // 4.0
+   }
+}
+```
+
+### 문자열의 표현
+
+```
+public class StringApp {
+    public static void main(String[] args){
+        System.out.println("HelloWorld"); // String(문자열)
+        System.out.println('H'); // Character(한 글자를 표현하는 데이터 타입)
+        System.out.println("H"); // 이렇게 해도 String.
+        // Java에서는 작은 따옴표가 특수한 데이터 타입을 가리킴.
+        // String은 Character들이 모여있는 것
+
+        System.out.println("Hello " +
+                 "World"); // Hello World
+        System.out.println("Hello \nWorld" ); // \n : new line을 의미함. (줄바꿈)
+        System.out.println("Hello \"World\""); // escape
     }
 }
 ```
