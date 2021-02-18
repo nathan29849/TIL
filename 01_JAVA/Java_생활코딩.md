@@ -15,7 +15,7 @@ C, C++ 등의 기존 언어에서는 각 운영체제별로 서로 다른 코드
 
 ### JAVA의 작동 원리
 
-![](https://images.velog.io/images/nathan29849/post/77be93b3-2293-42ac-93e0-686e5ca15568/image.png)
+![](https://images.velog.io/images/nathan29849/post/77be93b3-2293-42ac-93e0-686e5ca15568/image.png){: width="30%" height="30%"}
 
 - 원인 : source, code, language
 - 결과 : application, program
