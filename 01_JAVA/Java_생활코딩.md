@@ -13,7 +13,7 @@ C, C++ 등의 기존 언어에서는 각 운영체제별로 서로 다른 코드
 4. 멀티스레드 프로그래밍 지원 (복잡한 대용량 작업을 빠른 시간 내에 처리 가능)
 5. 다양한 응용 프로그램 작성 가능
 6. 많은 오픈 소스 라이브러리의 존재 (Apache Commons, Google Guava 등)
-   <br/>
+   <br/><br/>
 
 ### JAVA의 작동 원리
 
@@ -99,7 +99,8 @@ public class StringApp {
 ### CASTING
 
 데이터 타입을 다른 데이터 타입으로 바꾸어주는 역할을 함.
-<img src="https://images.velog.io/images/nathan29849/post/32f1bcda-884a-490f-bb4a-ecf1a3eacd45/image.png" width="40%" >
+
+<img src="https://images.velog.io/images/nathan29849/post/32f1bcda-884a-490f-bb4a-ecf1a3eacd45/image.png" width="50%" >
 
 ```
 public class Casting {
