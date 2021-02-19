@@ -38,6 +38,7 @@ public class HelloWorldApp { // 우리가 생성한 파일명과 클래스 명�
 ```
 
 ---
+<br/>
 
 ## 데이터와 연산
 
@@ -85,6 +86,7 @@ public class StringApp {
 ```
 
 ---
+<br/>
 
 ## 변수(VARIABLE)
 
