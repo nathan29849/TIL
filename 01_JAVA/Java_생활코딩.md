@@ -119,3 +119,24 @@ public class Casting {
     }
 }
 ```
+
+<br/>
+### int : primitive 자료형(long, float, double 등등...)
+
+- 산술 연산이 가능하다.
+- null로 초기화 할 수 없다.
+
+### Integer : Wrapper 클래스 => 한 객체를 의미
+
+- Unboxing을 하지 않으면 산술 연산이 불가능 but, null 값을 처리 가능함
+- null 값 처리가 용이하기 때문에 SQL과 연동할 경우에 처리를 원활하게 할 수 있음
+- DB에서 자료형이 정수형이지만 null 값이 필요한 경우 VO(Value Object)에서 Integer를 사용할 수 있음.
+
+#### int와 Integer간의 변환 : Boxing과 Unboxing이라고 함
+
+- Boxing : Primitive 자료형 => Wrapper 클래스
+- Unboxing : Wrapper 클래스 => Primitive 자료형
+
+---
+
+<br/>
