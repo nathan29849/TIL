@@ -1,4 +1,4 @@
-package org.opentutorials_iot;
+package org.opentutorials.iot;
 
 public interface OnOff {
 	public boolean on();

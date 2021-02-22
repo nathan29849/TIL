@@ -1,9 +1,7 @@
-import org.opentutorials_iot.DimmingLights;
-import org.opentutorials_iot.Elevator;
-import org.opentutorials_iot.Lighting;
-import org.opentutorials_iot.Security;
-
-import javax.swing.*;
+import org.opentutorials.iot.DimmingLights;
+import org.opentutorials.iot.Elevator;
+import org.opentutorials.iot.Lighting;
+import org.opentutorials.iot.Security;
 
 
 public class OKJavaGoInHomeInput {

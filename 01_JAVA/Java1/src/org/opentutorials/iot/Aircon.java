@@ -1,6 +1,8 @@
-package org.opentutorials_iot;
+package org.opentutorials.iot;
 
-public class Aircon implements OnOff{
+import org.opentutorials_iot.OnOff;
+
+public class Aircon implements OnOff {
 	String _id;
 	double _desiredTemperature = 26.0;
 

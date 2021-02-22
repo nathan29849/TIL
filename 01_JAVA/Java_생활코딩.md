@@ -192,3 +192,24 @@ public class OKJavaGoInHomeInput {
 - **args**가 여러개라면 앞에 있는 **String[ ]** 을 통해 문자열이라는 데이터 타입으로 들어온다.
 
 참고 : IntelliJ에서는 **" "** 로 Argumets를 구분하여 준다.
+
+---
+
+<br/>
+
+### Debug
+
+1. pwd(print working derectory)를 통해 현재 내 위치를 파악하는 것이 중요
+2. /usr/libexec/java_home 를 통해 java가 설치된 위치를 찾아낼 수 있음
+
+```
+javac Programming.java // 자바 파일을 컴파일하여 클래스 파일을 만듦
+cat Programming.java // 자바 파일 내부의 코드를 터미널 창에 띄움
+java Programming // 클래스 파일을 만든 뒤 Run 하는 명령어
+java -cp ".:lib" OKJavaGoInHome.java
+// 해당 java 파일과 import 해오는 패키지가 동일 디렉토리 레벨이 있지않은 경우
+// class path 명령어를 통해 실행할 수 있다.
+// 동일 디렉토리 레벨에 있으면 알아서 실행됨.
+
+java OKJavaGoInHomeInput "JAVA APT 507" "7.0" // 이런 식으로 매개변수 넣어서 자바 클래스 파일을 실행할 수 있다.
+```
