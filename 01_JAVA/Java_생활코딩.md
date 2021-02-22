@@ -146,3 +146,47 @@ public class Casting {
 ---
 
 <br/>
+
+## 입력과 출력
+
+##### java popup input text swing
+
+```
+import javax.swing.*;
+...
+String id = JOptionPane.showInputDialog("Enter a ID");
+```
+
+이렇게 하면 팝업창에 아이디를 입력하는 창이 뜬다.
+<br/><br/>
+
+##### java string to double conversion
+
+```
+moodeLamp.setBright(Double.parseDouble(Bright));
+```
+
+Double.parseDouble(); 로써 바꿀 수 있다.
+
+---
+
+<br/>
+### Arguments 설정하기
+IntelliJ에서는 debug시 **Edit Configuration**을 통해 arguments를 미리 설정해서 적용할 수 있다.
+
+```
+public class OKJavaGoInHomeInput {
+    public static void main(String[] args){
+
+    }
+```
+
+위에 있는 **args** 또한 변수이다.
+
+- 이 **args**는 프로그램과 프로그램 사용자를 매개해주기 때문에 매개변수(parameter) 라고 하기도 한다.
+
+- 위에서 **Edit Configuration**를 통해 설정했던 Argumets가 **args**를 통해 들어온다고 생각하면 된다.
+
+- **args**가 여러개라면 앞에 있는 **String[ ]** 을 통해 문자열이라는 데이터 타입으로 들어온다.
+
+참고 : IntelliJ에서는 **" "** 로 Argumets를 구분하여 준다.

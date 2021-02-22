@@ -1,4 +1,4 @@
-package org.opentutorials.iot;
+package org.opentutorials_iot;
 
 public class Elevator {
 	String _id;
