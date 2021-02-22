@@ -171,8 +171,10 @@ Double.parseDouble(); 로써 바꿀 수 있다.
 ---
 
 <br/>
+
 ### Arguments 설정하기
-IntelliJ에서는 debug시 **Edit Configuration**을 통해 arguments를 미리 설정해서 적용할 수 있다.
+
+IntelliJ에서는 debug시 **Edit Configuration** 을 통해 arguments를 미리 설정해서 적용할 수 있다.
 
 ```
 public class OKJavaGoInHomeInput {
