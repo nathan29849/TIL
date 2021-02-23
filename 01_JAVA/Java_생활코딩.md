@@ -213,3 +213,24 @@ java -cp ".:lib" OKJavaGoInHome.java
 
 java OKJavaGoInHomeInput "JAVA APT 507" "7.0" // 이런 식으로 매개변수 넣어서 자바 클래스 파일을 실행할 수 있다.
 ```
+
+---
+
+<br/>
+
+<img src="https://images.velog.io/images/nathan29849/post/642a2ae8-2b4a-490d-9fae-d23b62d87d2f/image.png" width="40%">
+
+### Class
+
+- 서로 연관된 변수와 메서드들을 모아 이름을 붙인 것이라 생각
+
+### Package
+
+- Class들을 모아 그룹지은 것이라 생각
+
+\*\* constructor가 있는 class는 인스턴스를 만드는 것이 허용된 class다.
+(ex. printwriter)
+
+### Inheritance
+
+<img src="https://images.velog.io/images/nathan29849/post/1a1bfd84-ce08-4244-a54e-378f49936982/image.png" width="80%">
