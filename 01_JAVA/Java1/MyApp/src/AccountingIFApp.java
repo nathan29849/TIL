@@ -1,4 +1,4 @@
-public class AccountingApp {
+public class AccountingIFApp {
     public static void main(String[] args){
 
         double valueOfSupply = Double.parseDouble(args[0]); // Replace 단축키 : command + r
@@ -8,19 +8,21 @@ public class AccountingApp {
         double total = valueOfSupply + valueOfSupply * vatRate;
         double expense = valueOfSupply * expenseRate;
         double income = valueOfSupply - expense;
+        // income이 만원보다 적을경우 1이 다 가져가고, 클경우엔 1,2,3이 모두 나눠 갖는다.(조건문 만들기)
 
-//        double rate1 = 0.5;
-//        double rate2 = 0.3;
-//        double rate3 = 0.2;
-        double[] devidendRates = new double[3];
-        devidendRates[0] = 0.5;
-        devidendRates[1] = 0.3;
-        devidendRates[2] = 0.2;
+        double devidend1;
+        double devidend2;
+        double devidend3;
 
-        double devidend1 = income * devidendRates[0];
-        double devidend2 = income * devidendRates[1];
-        double devidend3 = income * devidendRates[2];
-
+        if (income > 10000.0) {
+            devidend1 = income * 0.5;
+            devidend2 = income * 0.3;
+            devidend3 = income * 0.2;
+        } else {
+            devidend1 = income * 1;
+            devidend2 = income * 0;
+            devidend3 = income * 0;
+        }
 
 
         System.out.println("Value of supply : "+ valueOfSupply);
