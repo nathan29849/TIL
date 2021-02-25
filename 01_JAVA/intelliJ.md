@@ -46,6 +46,21 @@
 \*\* 단, Evaluate의 경우 코드를 계속 수동 실행해야하지만, Watch의 경우 삭제하지 않는한, break line이 실행될때마다 자동 실행된다.
 
 - #### call stack
+
   디버깅 화면의 좌측 하단에는 해당 break line에 오기까지의 call stack 이 출력된다.
   이를 통해 이전에 어떤 값들이 넘어 온것인지, 이전에 다른 연산을 했으면 어떻게 값이 바뀔지를 모두 확인할 수 있다.
   (특히 Spring과 같은 프레임워크에서 어떻게 코드가 실행되고 값이 변경되는지 확인할때 굉장히 유용하게 사용된다.)
+
+  ***
+
+  <br/>
+
+  ### Replace 및 Variable 설정 단축키
+
+  - Replace 단축키 : command + r
+  - Variable 설정 단축키 : option + command + v
+
+```
+double valueOfSupply = Double.parseDouble(args[0]); //Replace 단축키 : command + r
+double vatRate = 0.1; //variable 설정 단축키 :  option + command + v
+```
