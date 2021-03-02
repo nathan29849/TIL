@@ -4,7 +4,6 @@ def find_alphabet_occurrence_array(string):
 
     # 이 부분을 채워보세요!
     for i in string:
-        # print(i.isalpha())
         if i.isalpha() is True:
             alphabet_occurrence_array[ord(i)-ord('a')] += 1
         

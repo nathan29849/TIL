@@ -9,7 +9,7 @@ def find_not_repeating_character(string):
     alphabet_occurrence_array = [0] * 26
     once_alphabet = []
     # first_alphabet = 0
-    for i in input:
+    for i in string:
         alphabet_occurrence_array[ord(i)-ord('a')] += 1 # 알파벳 나올 떄마다 횟수 추가
     
     for num in range(len(alphabet_occurrence_array)):
@@ -25,7 +25,7 @@ def find_not_repeating_character(string):
     #                 raise NotImplementedError
     # except:
     #     first_alphabet = a
-    for char in input:
+    for char in string:
         if char in once_alphabet:
             return char
 
