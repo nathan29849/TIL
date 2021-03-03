@@ -11,11 +11,17 @@ def find_prime_list_under_number(number):
     elif number == 1:
         return "1은 소수가 없습니다."
     else:
-        for num in range(2, input+1):   # 1, 2, 3, 4, 5, 6, ... 소인수분해하면 간단한데...
-            if num % 
-                prime_list.append(num)
-        
-
+        for num in range(2, number+1):   # 2, 3, 4, 5, 6, ... 9
+            prime_list.append(num)
+            for count in range(2, num):     # 3부터 시작됨 (2는 어차피 소수니까 자연스럽게 포함)
+                result = num % count
+                if result == 0:
+                    prime_list.pop(prime_list.index(num))
+                    break
+                else:
+                    continue
+            
+            
     return prime_list
 
 
