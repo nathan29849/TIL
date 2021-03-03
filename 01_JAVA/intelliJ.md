@@ -64,3 +64,5 @@
 double valueOfSupply = Double.parseDouble(args[0]); //Replace 단축키 : command + r
 double vatRate = 0.1; //variable 설정 단축키 :  option + command + v
 ```
+
+단축키 참고 사이트 : https://cishome.tistory.com/121
