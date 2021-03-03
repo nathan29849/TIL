@@ -9,7 +9,7 @@ def find_prime_list_under_number(number):
     if number <= 0:
         return "양의 정수를 입력하여 주세요."
     elif number == 1:
-        return "1은 소수가 없습니다."
+        return "1은 소수가 아닙니다."
     else:
         for num in range(2, number+1):   # 2, 3, 4, 5, 6, ... 9
             prime_list.append(num)

@@ -32,5 +32,12 @@ double devidend3 = income * devidendRates[2];
 ### JAVA 반복문
 
 ```
-
+double[] dividendRates = new double[3];
+dividendRates[0] = 0.5;
+dividendRates[1] = 0.3;
+dividendRates[2] = 0.2;
+int i = 0;
+while (i < dividendRates.length) {
+    System.out.println("Devidend : "+ dividendRates[i]*income);
+    i = i + 1;
 ```
