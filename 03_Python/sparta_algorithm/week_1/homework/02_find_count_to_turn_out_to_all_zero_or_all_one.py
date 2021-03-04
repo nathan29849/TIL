@@ -10,30 +10,62 @@
 # 한 번에 0000000이 되어서 1번 만에 모두 같은 숫자로 만들 수 있다.
 
 # 주어진 문자열을 모두 0 혹은 모두 1로 같게 만드는 최소 횟수를 반환하시오.
-input = "011110"
-# if "010011"
+# input = "011110"
+input =  "010001"
+# input =  "010101"
 
 
 def find_count_to_turn_out_to_all_zero_or_all_one(string):
     # 이 부분을 채워보세요!
-    count = 0
-    count_zero = 0
-    count_one = 0
-    # new_string = 0
-    for s in string:
-        if s == 0:
-            count_zero += 1
-        else:
-            count_one += 1
-    if count_zero >= count_one:
-        for one in string:
-            if one == 1:
-                one == 0
+    flag = True
+    i = 0
+    code_zero = 1
+    code_one = 1
+    new_list = []
+    while flag:
+        while i < len(string)-1:
+            new_list.append(string[i])
+            if string[i] == '0' and string[i+1] == "0":
+                code_zero += 1
+                i += 1
+                print('code_zero :', code_zero)
+            elif string[i] == "1" and string[i+1] == "1":
+                code_one += 1
+                i += 1
+                print('code_one :', code_one)
             else:
+                i += 1
+        new_list.append(string[-1])
+        if code_zero > code_one:
+            for i in range(1, len(code_one)+1):
+                
+
+        flag = False
+
+            
+
+
+
+        # for i in range(len(string)-1):
+
+
+
+   
+
+
+
+
+            
+    #         count_one += 1
+    # if count_zero >= count_one:
+    #     for one in string:
+    #         if one == 1:
+    #             one == 0
+    #         else:
                 
 
 
-    return 1
+    # return 1
 
 
 result = find_count_to_turn_out_to_all_zero_or_all_one(input)

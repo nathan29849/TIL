@@ -53,6 +53,7 @@ while (i < dividendRates.length) {
 double valueOfSupply = Double.parseDouble(args[0]); // Replace 단축키 : command + r
 double vatRate = 0.1; // variable 설정 단축키 :  option + command + v
 double vat = getVAT(valueOfSupply, vatRate);
+}
 
 private static double getVAT(double valueOfSupply, double vatRate) {
 return valueOfSupply * vatRate;
@@ -66,7 +67,7 @@ return valueOfSupply * vatRate;
 
 ```
 public class AccountingMethodApp {
-    public static double valueOfSupply = 10000.0; //
+    public static double valueOfSupply = 10000.0; // 클래스 전역변수로 설정
     public static double vatRate = 0.1;
     public static void main(String[] args){
 
