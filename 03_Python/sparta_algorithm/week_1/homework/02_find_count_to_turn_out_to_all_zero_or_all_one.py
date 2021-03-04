@@ -14,33 +14,47 @@
 input =  "010001"
 # input =  "010101"
 
-
 def find_count_to_turn_out_to_all_zero_or_all_one(string):
     # 이 부분을 채워보세요!
+    new_string = ""
+    count_first_zero = 0
+    count_first_one = 0
     flag = True
-    i = 0
-    code_zero = 1
-    code_one = 1
-    new_list = []
     while flag:
-        while i < len(string)-1:
-            new_list.append(string[i])
-            if string[i] == '0' and string[i+1] == "0":
-                code_zero += 1
-                i += 1
-                print('code_zero :', code_zero)
-            elif string[i] == "1" and string[i+1] == "1":
-                code_one += 1
-                i += 1
-                print('code_one :', code_one)
-            else:
-                i += 1
-        new_list.append(string[-1])
-        if code_zero > code_one:
-            for i in range(1, len(code_one)+1):
-                
+        new_list = []
+        new_list.append(string[0])
 
+        for i in range(len(string)-1):   # 0 1 2 3 4
+            new_list.append(string[i+1])    # 1 2 3 4 5
+            if string[0] == 0:
+                if string[i] == string[i+1]:
+                        continue
+                else:
+                    count_first_zero += 1
+                    if string[i+1] == "0":
+                        new_list[i+1] = "1"
+                    else: # string[i+1] == "1"
+                        new_list[i+1] = "0"
+
+
+            else: # string[0] == 1:
+
+
+
+
+
+
+            new_string += new_list[i]
+        new_string += new_list[-1]
         flag = False
+    print(new_list)
+    print(new_string)
+
+
+
+                    
+
+
 
             
 
