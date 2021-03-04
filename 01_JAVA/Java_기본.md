@@ -86,6 +86,55 @@ public class AccountingMethodApp {
 
 ### 클래스
 
-- 서로 연관된 변수와 메소드를 그룹핑하여 이름을 붙인 것.
-  (file로 치면 디렉토리의 역할)
+- 서로 연관된 변수와 메소드를 그룹핑하여 이름을 붙인 것. (file로 치면 디렉토리의 역할)
 - 구조를 결정하기 때문에 중요함.
+
+### 인스턴스
+
+- 하나의 클래스를 복제해서 서로 다른 데이터의 값과 서로 같은 메소드를 가진 복제본.
+
+```
+class Accounting {
+    public double valueOfSupply;
+    public double vatRate;
+    public double expenseRate;
+    public void print() {
+        System.out.println("Value of supply : "+ valueOfSupply); // 전역변수라 그대로 변수로 써도 됨.
+        System.out.println("VAT : "+ getVAT());
+        System.out.println("Total : "+ getTotal());
+        System.out.println("Expense : "+ getExpense());
+        System.out.println("Income : "+ getIncome());
+    }
+    private  double getIncome()  {
+        return valueOfSupply - getExpense();
+    }
+    private  double getExpense() {
+        return valueOfSupply * expenseRate;
+    }
+    private  double getTotal() {
+        return valueOfSupply + getVAT();
+    }
+    private  double getVAT() {
+        return valueOfSupply * vatRate;
+    }
+}
+```
+
+```
+public class AccountingClassApp {
+    public static void main(String[] args){
+        // instance (이때는 static을 class 내부에서는 사용하면 안됨! )
+        Accounting a1 = new Accounting();
+        a1.valueOfSupply = 100000.0;
+        a1.vatRate = 0.1;
+        a1.expenseRate = 0.3;
+        a1.print();
+
+        Accounting a2 = new Accounting();
+        a2.valueOfSupply = 100000.0;
+        a2.vatRate = 0.4;
+        a2.expenseRate = 0.2;
+        a2.print();
+    }
+}
+```
