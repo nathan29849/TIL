@@ -10,77 +10,54 @@
 # 한 번에 0000000이 되어서 1번 만에 모두 같은 숫자로 만들 수 있다.
 
 # 주어진 문자열을 모두 0 혹은 모두 1로 같게 만드는 최소 횟수를 반환하시오.
-# input = "011110"
-input =  "010001"
+input = "011110"
+# input =  "010001"
 # input =  "010101"
+# input = "110011"
+# input = "101001"
+# input = "1110011"
 
 def find_count_to_turn_out_to_all_zero_or_all_one(string):
     # 이 부분을 채워보세요!
-    new_string = ""
-    count_first_zero = 0
-    count_first_one = 0
-    flag = True
-    while flag:
-        new_list = []
-        new_list.append(string[0])
+    overlap = 0
+    count = 0
+    for i in range(1, len(string)):
+        if string[i-1] == string[i]:
+            continue
+        else:   # string[i-1] != string[i]
+            count += 1
+            if string[i] != string[-1]:
+                overlap += 1
 
-        for i in range(len(string)-1):   # 0 1 2 3 4
-            new_list.append(string[i+1])    # 1 2 3 4 5
-            if string[0] == 0:
-                if string[i] == string[i+1]:
-                        continue
-                else:
-                    count_first_zero += 1
-                    if string[i+1] == "0":
-                        new_list[i+1] = "1"
-                    else: # string[i+1] == "1"
-                        new_list[i+1] = "0"
-
-
-            else: # string[0] == 1:
-
-
-
-
-
-
-            new_string += new_list[i]
-        new_string += new_list[-1]
-        flag = False
-    print(new_list)
-    print(new_string)
-
-
-
-                    
-
-
-
-            
-
-
-
-        # for i in range(len(string)-1):
-
-
-
-   
-
-
-
-
-            
-    #         count_one += 1
-    # if count_zero >= count_one:
-    #     for one in string:
-    #         if one == 1:
-    #             one == 0
-    #         else:
-                
-
-
-    # return 1
-
+    return count-overlap
 
 result = find_count_to_turn_out_to_all_zero_or_all_one(input)
 print(result)
+            
+
+
+
+    # for i in range(1, len(string)-1):   # 0 1 2 3 4
+    #     if string[0] == "0":  # 맨 앞 숫자가 0일 때.
+    #         if string[i-1] == string[i]:    # 이전 숫자가 현재 숫자와 같을 때.
+    #             if string[i] == string[i+1]:    # 다음 숫자가 현재 숫자와 같을 때.
+    #                 continue
+    #             else:   # 이전 숫자와는 같지만 다음 숫자와는 다를 때.
+    #                 count_first_zero += 1
+    #         else:   # 직전 숫자와 현재 숫자가 다를 때.
+    #             if string[i] == string[i+1]: # 다음 숫자가 현재 숫자와 같을 때.
+    #                 continue
+    #             else:   # 현재 숫자가 이전 숫자도 다르고 다음 숫자도 다를 때
+    #                 continue
+    #     else:   # 맨 앞 숫자가 1일 때.
+    #         if string[i-1] == string[i]:    # 이전 숫자가 현재 숫자와 같을 때.
+    #             if string[i] == string[i+1]:    # 다음 숫자가 현재 숫자와 같을 때.
+    #                 continue
+    #             else:   # 이전 숫자와는 같지만 다음 숫자와는 다를 때.
+    #                 count_first_one += 1
+    #         else:   # 직전 숫자와 현재 숫자가 다를 때.
+    #             if string[i] == string[i+1]: # 다음 숫자가 현재 숫자와 같을 때.
+    #                 continue
+    #             else:   # 현재 숫자가 이전 숫자도 다르고 다음 숫자도 다를 때
+    #                 continue
+
