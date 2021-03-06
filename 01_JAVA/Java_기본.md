@@ -1,6 +1,17 @@
 ## JAVA 기본
 
-### JAVA 조건문
+### JAVA 제어문
+
+<구성>
+
+- boolean data type
+- comparison operator
+- conditional statement
+- looping statement
+
+#### Boolean data type
+
+#### JAVA 조건문
 
 ```
 if (income > 10000.0) {
@@ -14,7 +25,7 @@ if (income > 10000.0) {
 }
 ```
 
-### JAVA 배열
+#### JAVA 배열
 
 - 파이썬과 달리 변수의 자료형이 배열 선언시 들어간다.
 
@@ -29,7 +40,7 @@ double devidend2 = income * devidendRates[1];
 double devidend3 = income * devidendRates[2];
 ```
 
-### JAVA 반복문
+#### JAVA 반복문
 
 ```
 double[] dividendRates = new double[3];
