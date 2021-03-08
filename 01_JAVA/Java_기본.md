@@ -9,12 +9,10 @@
 - conditional statement
 - looping statement
 
-#### Boolean data type
-
-#### JAVA 조건문
+#### JAVA 조건문(Conditional statement)
 
 ```
-if (income > 10000.0) {
+if (income > 10000.0) { // boolean type만이 if 문 괄호 안에 들어갈 수 있다.
     devidend1 = income * 0.5;
     devidend2 = income * 0.3;
     devidend3 = income * 0.2;
@@ -24,6 +22,48 @@ if (income > 10000.0) {
     devidend3 = income * 0;
 }
 ```
+
+### Java ==과 equals의 차이점
+
+- Java에는 2가지로 데이터 타입을 구분지을 수 있음
+  1. primitive : boolean, int, double, short, long, float, char ...
+     - 더이상 쪼갤 수 없는 데이터 타입
+  2. non primitive : String, Array, Data, File ...
+     - 더 쪼갤 수 있는 데이터 타입
+- **==** 라는 동등비교연산자는 저장된 장소까지 같은지 물어보는 개념이고, **equals( )** 는 내용만 같은지를 물어보는 개념이다. 그러나 문자열의 경우 같은 값으로 할당하면, 같은 장소에 저장되므로 **==** 으로도 비교가능토록 취급된다.
+  따라서 아래의 그림을 참고하자.
+  <img src ="https://images.velog.io/images/nathan29849/post/565220f4-89f5-464d-be1e-84d9b6d38ee9/image.png">
+  <br/>
+- 이 경우에는 args[0]="nathan" 일지라도 `inputId == id`가 `false`가 되는데, 그 이유는 입력 값들이 서로 다른 곳에 저장이 되어 그렇다고 이해하면 된다.
+
+```
+public class AuthApp {
+    public static void main(String[] args) {
+        System.out.println(args[0]);
+        String id = "nathan";
+        String inputId = args[0];
+
+        String password = "1234";
+        String input_Password = args[1];
+
+        System.out.println("Hi");
+        if (inputId == id){  // 예상과 달리 비교가 안됨
+            if (input_Password.equals(password)){
+                System.out.println("Master!");
+            } else {
+                System.out.println("Wrong password!");
+            }
+        }
+        else {
+            System.out.println("Who are you?");
+        }
+    }
+}
+
+```
+
+**결론 : 가장 중요한 것은 데이터 타입을 일일이 확인하여 어떤 방법으로 취급할지 정하는 것이다.
+이유 : 객체는 복합 데이터 타입이므로 한 눈에 비교하는 것이 쉽지 않기 때문이다. 객체들마다 정책이 다를 수 있다.**
 
 #### JAVA 배열
 
