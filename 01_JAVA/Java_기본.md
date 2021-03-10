@@ -32,7 +32,7 @@ if (income > 10000.0) { // boolean type만이 if 문 괄호 안에 들어갈 수
      - 더 쪼갤 수 있는 데이터 타입
 - **==** 라는 동등비교연산자는 저장된 장소까지 같은지 물어보는 개념이고, **equals( )** 는 내용만 같은지를 물어보는 개념이다. 그러나 문자열의 경우 같은 값으로 할당하면, 같은 장소에 저장되므로 **==** 으로도 비교가능토록 취급된다.
   따라서 아래의 그림을 참고하자.
-  <img src ="https://images.velog.io/images/nathan29849/post/565220f4-89f5-464d-be1e-84d9b6d38ee9/image.png">
+  <img src ="https://images.velog.io/images/nathan29849/post/565220f4-89f5-464d-be1e-84d9b6d38ee9/image.png" width="40%">
   <br/>
 - 이 경우에는 args[0]="nathan" 일지라도 `inputId == id`가 `false`가 되는데, 그 이유는 입력 값들이 서로 다른 곳에 저장이 되어 그렇다고 이해하면 된다.
 
@@ -82,6 +82,13 @@ double devidend3 = income * devidendRates[2];
 
 #### JAVA 반복문
 
+> **for 반복문의 소괄호 안에 들어갈 정보**  
+> (1; 2; 3)
+>
+> 1. 초깃값 세팅 코드
+> 2. 반복을 더 해야하는지를 체크하는 boolean 값
+> 3. 반복이 진행될 때마다 실행되어야 하는 코드
+
 ```
 double[] dividendRates = new double[3];
 dividendRates[0] = 0.5;
@@ -91,6 +98,10 @@ int i = 0;
 while (i < dividendRates.length) {
     System.out.println("Devidend : "+ dividendRates[i]*income);
     i = i + 1;
+// 1, 초깃값 세팅 코드, 2. 반복을 더 해야하는지를 체크하는 boolean 값, 3. 반복이 진행될 때마다 실행되어야 하는 코드
+for(int k = 0; k < 3; k++) {
+    System.out.println(4);
+}
 }
 ```
 
