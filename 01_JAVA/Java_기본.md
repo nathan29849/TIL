@@ -11,7 +11,7 @@
 
 #### JAVA 조건문(Conditional statement)
 
-```
+```java
 if (income > 10000.0) { // boolean type만이 if 문 괄호 안에 들어갈 수 있다.
     devidend1 = income * 0.5;
     devidend2 = income * 0.3;
@@ -36,7 +36,7 @@ if (income > 10000.0) { // boolean type만이 if 문 괄호 안에 들어갈 수
   <br/>
 - 이 경우에는 args[0]="nathan" 일지라도 `inputId == id`가 `false`가 되는데, 그 이유는 입력 값들이 서로 다른 곳에 저장이 되어 그렇다고 이해하면 된다.
 
-```
+```java
 public class AuthApp {
     public static void main(String[] args) {
         System.out.println(args[0]);
@@ -68,16 +68,26 @@ public class AuthApp {
 #### JAVA 배열
 
 - 파이썬과 달리 변수의 자료형이 배열 선언시 들어간다.
+- Index와 Element로 구성되어 있다.
 
-```
-double[] devidendRates = new double[3];
-devidendRates[0] = 0.5;
-devidendRates[1] = 0.3;
-devidendRates[2] = 0.2;
+```java
+public class ArrayApp {
+    public static void main(String[] args) {
+        // nathan, peter, smith
+        // String users = "nathan, peter, smith"; // 너무 비효율적임 -> 배열을 사용하자.
+        String[] users = new String[3]; // 담고자하는 배열의 크기를 지정함.
+        users[0] = "nathan";
+        users[1] = "peter";
+        users[2] = "smith";
 
-double devidend1 = income * devidendRates[0];
-double devidend2 = income * devidendRates[1];
-double devidend3 = income * devidendRates[2];
+        System.out.println(users[1]); // Index
+        System.out.println(users.length); // 몇 개의 내용이 있단기보다는 크기가 얼마인 배열이다라고 생각
+
+        int[] scores = {10, 100, 1000}; // 원소, Element
+        System.out.println(scores[1]);
+        System.out.println(scores.length);
+    }
+}
 ```
 
 #### JAVA 반복문
@@ -89,7 +99,7 @@ double devidend3 = income * devidendRates[2];
 > 2. 반복을 더 해야하는지를 체크하는 boolean 값
 > 3. 반복이 진행될 때마다 실행되어야 하는 코드
 
-```
+```java
 double[] dividendRates = new double[3];
 dividendRates[0] = 0.5;
 dividendRates[1] = 0.3;
@@ -111,7 +121,7 @@ for(int k = 0; k < 3; k++) {
 - 메소드를 만드는 단축키 : 수식을 드래그 한 후 option + command + M
 - 또는 수식을 드래그 + 오른쪽 마우스 클릭 후 Refactor > Extract method 선택
 
-```
+```java
 double valueOfSupply = Double.parseDouble(args[0]); // Replace 단축키 : command + r
 double vatRate = 0.1; // variable 설정 단축키 :  option + command + v
 double vat = getVAT(valueOfSupply, vatRate);
@@ -127,7 +137,7 @@ return valueOfSupply * vatRate;
 - 메소드 괄호 ( ) 내의 변수들이 main method 안에서 지역변수로 선언이 되어있기 때문에 그냥 빼서는 안된다.
 - main method 바깥의 AccountingMethodApp 클래스의 전역변수로 선언해주면 된다.
 
-```
+```java
 public class AccountingMethodApp {
     public static double valueOfSupply = 10000.0; // 클래스 전역변수로 설정
     public static double vatRate = 0.1;
@@ -155,7 +165,7 @@ public class AccountingMethodApp {
 
 - 하나의 클래스를 복제해서 서로 다른 데이터의 값과 서로 같은 메소드를 가진 복제본.
 
-```
+```java
 class Accounting {
     public double valueOfSupply;
     public double vatRate;
@@ -182,7 +192,7 @@ class Accounting {
 }
 ```
 
-```
+```java
 public class AccountingClassApp {
     public static void main(String[] args){
         // instance (이때는 static을 class 내부에서는 사용하면 안됨! )
