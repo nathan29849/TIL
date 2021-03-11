@@ -28,3 +28,6 @@ def is_existing_target_number_binary(target, array):
 
 result = is_existing_target_number_binary(finding_target, finding_numbers)
 print(result)
+
+# 질문 : 만약 first 또는 finish에 target이 위치하게 될 때는 false가 뜰 수 밖에 없도록
+# while문 조건이 그렇게 되어있다.. 이진 탐색으로도 못 찾는 것이 있는가.
