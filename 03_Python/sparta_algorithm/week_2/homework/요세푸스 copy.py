@@ -11,27 +11,27 @@
 
 def josephus_problem(n, k):
    # 이 부분을 채워보세요!
-    j_list = []
-    result = []
-    for i in range(1, n+1):  
-        j_list.append(i)
-        
-    while len(j_list) > 0:
-        count = 1
-        for j in range(1, k+1, 1):
-            if count != k:
-                a = j_list.pop(0)
-                j_list.append(a)
-                count += 1
-                # print(j_list)
-            else:
-                b = j_list.pop(0)
-                result.append(str(b))
-                count = 1
+    # josephus_list = list(range(1, n+1))
+    josephus_list = [i for i in range(1, n+1)]   # 리스트를 한 줄로 나타내기
+    number = len(josephus_list)
+
+    index = k-1
+    a = str(josephus_list.pop(index))
+
+    while len(josephus_list) > 0:
+        # number = len(josephus_list)
+        index += index
+        # index: 4 -> element 6제거  /  index: 6 -> number = 5 -> index: 1 -> element 2제거
+        # index: 3 -> element 7제거 ...
+        if index > len(josephus_list):  
+            index -= len(josephus_list)        
+
+        a = a + str(josephus_list.pop(index))
+         
+    print(a)
+    # awesome = ", ".join(result)
     
-    awesome = ", ".join(result)
-    
-    print("<"+awesome+">")
+    # print("<"+awesome+">")
 
 
 n, k = map(int, input().split())    # map, split, join 함수 익히기
