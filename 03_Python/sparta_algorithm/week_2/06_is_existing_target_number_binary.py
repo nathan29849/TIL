@@ -1,5 +1,6 @@
-finding_target = 14
-finding_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+finding_target = 37
+# finding_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+finding_numbers = [1, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59]
 
 
 def is_existing_target_number_binary(target, array):
@@ -17,7 +18,6 @@ def is_existing_target_number_binary(target, array):
         if (array[mid] == target):
             # print(count)
             return True
-
         elif (array[mid] < target):
             start = mid+1
         else:
