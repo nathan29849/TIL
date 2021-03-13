@@ -11,12 +11,8 @@ def is_existing_target_number_binary(target, array):
     # 겹치는 순간부터는 finish가 start보다 먼저 오게되어 애초에 값을 찾을 수 없음.
     # 언제까지 while문을 돌려야할지 미리미리 생각하고 코드를 짜자.
     while start <= finish:
-        # count += 1
         mid = (start + finish) // 2 # 이 연산자를 통해 나머지 없이 몫만 나타낼 수 있음.
-        if finish + 1 < target:
-            return False
         if (array[mid] == target):
-            # print(count)
             return True
         elif (array[mid] < target):
             start = mid+1
