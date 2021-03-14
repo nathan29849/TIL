@@ -115,20 +115,30 @@ for(int k = 0; k < 3; k++) {
 }
 ```
 
+<br/>
+
 ### JAVA 메소드
 
 - 메소드는 서로 연관된 코드를 모아 이름을 붙인 것. 코드를 깔끔하게 정리 가능
 - 메소드를 만드는 단축키 : 수식을 드래그 한 후 option + command + M
 - 또는 수식을 드래그 + 오른쪽 마우스 클릭 후 Refactor > Extract method 선택
+  - Refactoring의 핵심적 역할을 하는 것은 Method이다
+
+Method를 통해 코드의 가독성을 높일 수 있고, 재사용이 가능하며, 유지보수의 편의성도 제공한다.
 
 ```java
-double valueOfSupply = Double.parseDouble(args[0]); // Replace 단축키 : command + r
-double vatRate = 0.1; // variable 설정 단축키 :  option + command + v
-double vat = getVAT(valueOfSupply, vatRate);
-}
-
-private static double getVAT(double valueOfSupply, double vatRate) {
-return valueOfSupply * vatRate;
+public class MyMethod {
+    public static void main(String[] args) {
+                    // 인자, argument : 함수 안으로 주입한 구체적인 값
+        printTwoTimes("A", "-");
+        printTwoTimes("B", "*");
+    }
+                                // 매개변수, parameter : 메소드 바깥 쪽에서 안으로 흘려보내주는 변수.
+    private static void printTwoTimes(String text, String delimiter) {
+        System.out.println(delimiter);
+        System.out.println(text);
+        System.out.println(text);
+    }
 }
 ```
 
@@ -151,12 +161,50 @@ public class AccountingMethodApp {
     return valueOfSupply * vatRate;
     }
 }
+// public, protected, default, private  : 외부에서의 접근하는 방법에 따라 달리 쓰임.
+//private : 같은 클래스 내에서만 사용 가능한 내부적인 메소드. public 은 그 반대임.
 ```
 
 - 변수의 선언만 바깥에서 하고, main 함수 내에서 값을 지정해주어도 된다.
   <br/>
 
 ### 클래스
+
+> static이 있는 것은 class method이다.
+> static이 없는 것은 instance method이다.
+
+- 예시
+
+```java
+class Print{
+    public String delimiter;
+    public void a(){
+        System.out.println(this.delimiter);
+        System.out.println("a");
+        System.out.println("a");
+    }
+
+    public static void c(String delimiter){
+        System.out.println(delimiter);
+        System.out.println("c");
+        System.out.println("c");
+    }
+
+}
+
+public class StaticMethod {
+
+    public static void main(String[] args) {
+        Print.c("^^");   // class 소속일 때는 static을 넣어주어야한다.
+        Print.c("$$");     // instance 소속과 class 소속은 static의 차이가 있다!
+
+        // instance
+        Print t1 = new Print();
+        t1.delimiter = "-";     // 이렇게 하면 인자값을 줄 필요가 없게됨.
+        t1.a(); // 이렇게 메소드가 인스턴스 소속일 때는 class method 의 static 을 빼주어야 한다.
+}
+
+```
 
 - 서로 연관된 변수와 메소드를 그룹핑하여 이름을 붙인 것. (file로 치면 디렉토리의 역할)
 - 구조를 결정하기 때문에 중요함.
