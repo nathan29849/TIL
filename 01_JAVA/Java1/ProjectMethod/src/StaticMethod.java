@@ -24,4 +24,5 @@ public class StaticMethod {
         Print t1 = new Print();
         t1.delimiter = "-";     // 이렇게 하면 인자값을 줄 필요가 없게됨.
         t1.a(); // 이렇게 메소드가 인스턴스 소속일 때는 class method 의 static 을 빼주어야 한다.
+    }
 }
