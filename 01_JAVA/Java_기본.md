@@ -1,5 +1,20 @@
 ## JAVA 기본
 
+### JAVA Identifier(식별자)
+
+- 식별자란? : 클래스, 변수, 상수, 메소드 등에 붙이는 이름
+- 식별자의 원칙 :
+  - 대 소문자의 구분
+  - 자바 언어의 키워드는 사용 불가
+  - 유니코드 및 한글 사용 가능 (영문 사용 권장)
+  - 첫 번째 문자로 숫자는 올 수 없음
+  - 첫 번째 문자로 '\_', '$'는 올 수 있으나 지양하는 편
+  - 길이 제한이 없다.
+  - 각종 특수문자 사용 불가 : @, #, ! 등
+  - Boolean, null literal 사용 불가
+
+<br/>
+
 ### JAVA 제어문
 
 <구성>
@@ -147,6 +162,8 @@ public class MyMethod {
 - 메소드 괄호 ( ) 내의 변수들이 main method 안에서 지역변수로 선언이 되어있기 때문에 그냥 빼서는 안된다.
 - main method 바깥의 AccountingMethodApp 클래스의 전역변수로 선언해주면 된다.
 
+- 참고 : `void`는 method 내에서 <mark>returrn 값이 없음</mark>을 의미하므로 `void`가 method에 적혀있지 않다면, return 값의 자료형을 꼭 넣어주어야 한다.
+
 ```java
 public class AccountingMethodApp {
     public static double valueOfSupply = 10000.0; // 클래스 전역변수로 설정
@@ -208,7 +225,7 @@ public class StaticMethod {
 
 - 서로 연관된 변수와 메소드를 그룹핑하여 이름을 붙인 것. (file로 치면 디렉토리의 역할)
 - 구조를 결정하기 때문에 중요함.
-- public class는 main method를 사용하는 곳에 사용한다고 생각하면 된다.
+- `public class`는 <mark>main method를 사용하는 곳</mark>에 사용한다고 생각하면 된다.
 - 보통은 다른 클래스들을 만들면 따로 파일로 관리를 하여 준다. (한 파일 내에 있으면 복잡)
 
 ### 인스턴스
