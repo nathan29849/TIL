@@ -1,6 +1,6 @@
-## JAVA 기본
+# JAVA 기본
 
-### JAVA Identifier(식별자)
+## JAVA Identifier(식별자)
 
 - 식별자란? : 클래스, 변수, 상수, 메소드 등에 붙이는 이름
 - 식별자의 원칙 :
@@ -13,9 +13,168 @@
   - 각종 특수문자 사용 불가 : @, #, ! 등
   - Boolean, null literal 사용 불가
 
+> class : 첫 단어들 모두 대문자로
+> ~ ex) public class AutoVendingMachine
+
+> variable, method : 처음만 소문자로 시작 다음 단어들은 대문자로
+> ~ ex) int myAge; public int whatsYourName(){...}
+
+> constant : 모든 문자 대문자
+> ~ ex) final static double PI = 3.141592;
+
 <br/>
 
-### JAVA 제어문
+## JAVA Data Type
+
+- **기본(basic) Type (8개)**
+  - boolean
+  - char
+  - byte
+  - short
+  - int
+  - long
+  - float
+  - double
+    <br/>
+- **레퍼런스(reference) Type (1개 - 용도 3가지)**
+  - 배열(Array)에 대한 레퍼런스 : 생성된 주소를 가리킨다고 보면 됨.
+  - 클래스(class)에 대한 레퍼런스 : 클래스로 생성된 객체에 대한 주소를 가리킴.
+  - 인터페이스(interface)에 대한 레퍼런스 : 위와 비슷. (생성된 것의 주소를 가리킴)
+
+> 자바의 기본 타입은 크기가 정해져 있다. (CPU나 운영체제에 따라 변하지 않음.)
+
+<img src="https://images.velog.io/images/nathan29849/post/d352ef54-0b90-49df-a1a8-930977774743/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-03-15%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%204.14.49.png" width="60%">
+
+> 리터럴(litaral) : 프로그램에 직접 표현한 값
+> (정수, 실수 문자, 논리, 문자열 리터럴이 있음.)
+
+<br/>
+
+#### 문자열(String)은 기본 타입이 아니다!!
+
+사실은 `String` 클래스로 문자열을 표현하는 것임.
+
+```java
+ex) String toolname = "JDK";
+```
+
+<br/>
+
+## 변수와 선언
+
+- 변수 : 프로그램 실행 중 값을 임시 저장하기 위한 공간
+
+  - 변수 값은 프로그램 수행 중 변경될 수 있음
+  - 데이터 타입에서 정한 크기의 메모리 할당
+
+- 변수 선언
+  - 변수의 데이터 타입 다음에 변수 이름을 적어 변수를 선언
+
+```java
+int price;
+char c1, c2, c3; // 3개의 변수를 한 번에 선언할 수 있음.
+double weight = 69.87; // 변수 선언과 동시에 초깃값을 설정해 줄 수 있음.
+weight = weight + 5.0; // 변수 읽기와 저장
+```
+
+> 참고 :
+>
+> - python과 달리 boolean 타입은 0,1을 False, True로 사용할 수 없다. (타입 불일치 오류)
+> - null 리터럴 : 객체 레퍼런스(ex. String)에 대입 사용이 가능하며 기본타입 (ex. int)에는 사용이 불가능하다.
+
+```java
+String str = null;
+```
+
+- **var 키워드**
+  - 지역 변수 선언에만 사용
+  - 변수 타입 선언 생략 (auto 키워드 ~ 컴파일러가 변수 타입을 추론함)
+
+```java
+var price = 200;            // int 타입으로 결정
+var name = "nathan";        // String 타입으로 결정
+final var PI = 3.14;              //  double 타입으로 결정
+var point new Point();      // Point 타입으로 결정
+```
+
+- **상수 선언**
+  - final 키워드 사용
+  - 선언 시 초기값 지정
+  - 실행 중 값 변경 불가
+
+```java
+final double PI = 3.141592;
+```
+
+- 자동 타입 변환
+  - 작은 타입은 큰 타입으로 자동 변환
+    - 컴파일러에 의해 이루어 짐
+  - 치환문(=)이나 수식 내에서 타입이 일치하지 않을 때
+
+<img src="https://images.velog.io/images/nathan29849/post/42699788-d1e6-4cd2-8965-ccca49e9bbee/image.png" width="50%">
+
+<br/>
+
+#### Casting : 강제 타입 변환
+
+- 자동 타입 변환이 안 되는 경우 : 큰 타입이 작은 타입으로 변환할 때
+- But Casting을 통하여 강제로 타입 변환을 할 수 있음.
+
+```java
+double d = 1.9;
+int n = (int)d;     // n = 1
+```
+
+#### Java에서 키 입력
+
+> System.in
+
+- 키보드로부터 직접 읽는 자바의 표준 입력 스트림 객체
+- 키 값을 바이트(문자 아님)로 리턴
+  <br/>
+
+- 문제점 : 키 값을 바이트 데이터로 넘겨주므로 응용프로그램이 문자정보로 변환해야 함.
+  <br/>
+
+- 해결 방안 : Scanner 클래스의 이용 - System.in에게 키를 읽게 하고, 읽은 바이트를 문자, 정수, 실수, 불린, 문자열 등 다양한 타입으로 변환하여 리턴한다.
+
+- 객체 생성
+
+```java
+import java.util.Scanner;   // import문 필요
+...
+Scanner a = new Scanner(System.in); // Scanner 객체 생성
+```
+
+<br/>
+
+#### 조건 연산자 ? :
+
+> condition ? opr2 : opr3
+
+- 세 개의 피연산자로 구성된 삼항(tenary) 연산자
+
+  - condition이 true이면, 연산식의 결과는 opr2, false이면 opr3
+
+- if-else를 간결하게 표현할 수 있음
+
+```java
+int x = 5;
+int y = 3;
+
+int s;
+if(x>y){
+    s = 1;
+}else{
+    s = -1;
+}
+
+int s = (x>y)?1:-1; // 한 줄로 표현이 가능
+```
+
+> 자바 비트 시프트 연산 (16진수, 음수, 문자열 포매팅(?) 등 이해 안가는 게 많았음.)
+
+## JAVA 제어문
 
 <구성>
 
