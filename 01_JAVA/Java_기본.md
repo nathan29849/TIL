@@ -349,6 +349,12 @@ public class AccountingMethodApp {
 > static이 있는 것은 class method이다.
 > static이 없는 것은 instance method이다.
 
+##### java 파일의 이름과 똑같은 이름의 클래스 앞에는 `public`을 붙인다. (클래스 앞의 해당 `public`은 한 번만 등장한다.)
+
+##### 하나의 파일에 두 개 이상의 클래스가 존재하게 되면, 각 클래스 파일이 그 개수만큼 생긴다.
+
+(해당 파일은 별도의 클래스들로 쪼개는 것이 가능하다. 단 쪼갤 때는 public을 앞에 붙여준다. 윗줄 내용과 일맥상통)
+
 - 예시
 
 ```java
