@@ -2,17 +2,18 @@
 
 public class MyOOP {
     public static void main(String[] args) {
-
+        Print p1 = new Print();
+        p1.delimiter = "----";
+        p1.A();
+        p1.B();
         //..
-        Print_3.delimiter = "----";
-        Print_3.A();
-        Print_3.B();
-        Print_3.A();
-        Print_3.B();
+        Print p2 = new Print();
+        p2.delimiter = "****";
+        p2.A();
+        p2.B();
         //..
-        Print_3.delimiter = "****";
-        Print_3.A();
-        Print_3.B();
+        p1.A();
+        p2.A();
     }
 
 }
