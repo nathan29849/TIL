@@ -30,5 +30,22 @@ def get_max_discounted_price(prices, coupons):
 
     return int(total_price)
 
+# 문제 해설(정렬 sort를 이용한 풀이)
+# def get_max(prices, coupons):
+#     prices.sort(reverse=True)   # 비싼 가격을 높은 할인율로 할인 받기
+#     coupons.sort(reverse=True)
+#     price_index = 0
+#     coupon_index = 0
+#     max_discounted_price = 0 
+#     while price_index < len(prices) and coupon_index < len(coupons):
+#         max_discounted_price +=  prices[price_index] * (100 - coupons[coupon_index])/100
+#         price_index += 1
+#         coupon_index += 1
+
+#     while price_index < len(prices):
+#         max_discounted += prices[price_index]
+#         price_index += 1
+#     return max_discounted_price
+
 
 print(get_max_discounted_price(shop_prices, user_coupons))  # 926000 이 나와야 합니다.

@@ -10,13 +10,41 @@
 # "(())()" # True
 # "(((("   # False
 
-s = "(())()"
+# s = "(())()"
+s = "()())(()" # 첫번째 풀이는 이 테스트 케이스를 통과하지 못함.
+# 중간에 틀린값이 나오면 찾아낼 수 없음 -> 고로 내 풀이는 틀렸다.
+# def is_correct_parenthesis(string):
+#     left = 0
+#     right = 0
+#     if string[0] ==")" or string[-1] == "(":
+#         return False
 
+#     for i in string:
+#         if i == "(":
+#             left += 1
+#         else:
+#             right += 1
 
+#     if left != right:
+#         return False
+#     else:
+#         return True
+
+# 문제 해설(Stack이용)
 def is_correct_parenthesis(string):
+    start_list = []
     for i in string:
-        print(i)
-    return
+        if i == "(":
+            start_list.append(i)
+        else:   # ")"
+            if len(start_list) == 0:
+                return False
+            start_list.pop()
+
+    if len(start_list) == 0:
+        return True
+    else:
+        return False
 
 
 print(is_correct_parenthesis(s))  # True 를 반환해야 합니다!
