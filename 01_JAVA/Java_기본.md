@@ -575,3 +575,25 @@ class Cal3 extends Cal {    // Cal class 를 확장해서 Cal class 가 가지�
     }
 }
 ```
+
+---
+
+**Polymorphism 다형성**
+
+- 상속을 하면 기능이 급격히 늘어나서 클래스 간 호환성이 떨어지게 되고, 클래스를 다른 클래스로 교체하는 것이 어렵게 됨
+- 따라서 자식 클래스를 부모클래스로서 동작하도록 하는 테크닉
+  - ParentClass obj = new ChildClass()
+
+**Access Modifiers(접근제어자)**
+
+- public, default, protected, private 등이 있음.
+- 클래스, 메소드, 변수를 사용자들이 아무거나 건드리지 못하게 제한하는 기능
+
+  **Final**
+
+- 우리가 만든 클래스를 다른 사람이 더이상 상속하지 못하게, 오버라이딩 하지 못하게, 변수를 마음대로 사용하지 못하게 규제하고 싶을 때 사용
+
+**Abstract**
+
+- Final과 다르게 어떤 특정한 메소드는 꼭 구현해라 라고 강제하고 싶은 메소드가 있다면 쓰자.
+- Abstract Class Incompletion {~}
