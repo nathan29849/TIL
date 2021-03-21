@@ -9,7 +9,7 @@ class Foo{
 
 public class StaticApp {
     public static void main(String[] args) {
-        System.out.println(Foo.classVar);   // mainmethod 내에서는 외부 class를 통해서는 당연히 클래스 변수에 접근 가능
+        System.out.println(Foo.classVar);   // main method 내에서는 외부 class 를 통해서는 당연히 클래스 변수에 접근 가능
         // System.out.println(Foo.instanceVar); // instance 변수에는 접근 불가
 
         Foo f1 = new Foo();

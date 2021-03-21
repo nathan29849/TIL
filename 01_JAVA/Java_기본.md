@@ -453,3 +453,125 @@ public class AccountingClassApp {
 그 메소드 안에 정의하는 것을 통해서 "초기화"의 목적을 달성할 수 있다.
 
 생성자는 return datatype이나 static 등을 지정해주지 않는다.
+
+---
+
+#### this
+
+내가 생성한 인스턴스를 가리킴
+
+```java
+public class Print {
+    public String delimiter = "";
+    public Print(String delimiter) {
+        this.delimiter = delimiter;
+    }
+    public void A() {
+        System.out.println(this.delimiter);
+        System.out.println("A");
+        System.out.println("A");
+    }
+    public void B() {
+        System.out.println(this.delimiter);
+        System.out.println("A");
+        System.out.println("A");
+    }
+}
+```
+
+---
+
+## JAVA 상속 (Inheritance)
+
+> 어떠한 클래스가 있을 때, 그 클래스가 갖고 있는 변수와 메소드를 확장해서, 상속해서
+> 다른 클래스가 갖도록 하는것.
+
+재사용성, 유지보수의 용이성, 편이성, 가독성 등을 높일 수 있다!
+
+상속 받을 클래스를 정의할 때 뒤에 `extends Class`를 입력하여 준다.
+
+예제 코드
+
+```java
+class Cal {
+    public int sum(int v1, int v2) {
+        return v1 + v2;
+    }
+}
+class Cal3 extends Cal {    // Cal class 를 확장해서 Cal class 가 가지고있던 모든 변수와 메소드를 상받게 된다는 말.
+}
+public class InheritanceApp {
+    public static void main(String[] args) {
+        Cal c= new Cal();
+        System.out.println(c.sum(0, 100));
+
+        Cal3 c3 = new Cal3();
+        System.out.println(c3.sum(100, 200));
+    }
+}
+```
+
+상속 받아 온 메소드도 재정의하는 형식으로 수정이 가능하며, -> `Overriding` 이라고 함.
+다른 메소드도 집어 넣어 사용할 수 있다.
+
+1. Overriding
+
+   - 부모 클래스의 기능에 올라타서 덮어쓰기를 한 것. (재정의)
+
+2. Overloading
+
+   - "과적하다", "너무 많이 탑재하다" 라는 뜻
+   - 상속과는 상관 없는 말.
+   - Java는 같은 이름의 메소드를 여러 개 과적할 수 있음 (형식만 다르면 가능!)
+
+```java
+class Cal {
+    public int sum(int v1, int v2) {
+        return v1 + v2;
+    }
+    public int sum(int v1, int v2, int v3) { // 같은 이름의 메소드를 여러 개 과적한 모습.
+        return v1 + v2 + v3;
+    }
+}
+```
+
+-> 꼭 부모 클래스에서 정의하지 않아도, 자식 클래스에서 이런식으로 과적하여 사용할 수 있음.
+
+##### this & super
+
+this : 자기 자신을 나타냄
+
+```java
+class Cal {
+    public int sum(int v1, int v2) {
+        return v1 + v2;
+    }
+    // Overloading
+    public int sum(int v1, int v2, int v3) {
+        return this.sum(v1, v2) + v3;
+    }
+}
+```
+
+super : 부모를 나타냄
+
+```java
+class Cal {
+    public int sum(int v1, int v2) {
+        return v1 + v2;
+    }
+    // Overloading
+    public int sum(int v1, int v2, int v3) {
+        return this.sum(v1, v2) + v3;
+    }
+}
+class Cal3 extends Cal {    // Cal class 를 확장해서 Cal class 가 가지고있던 모든 변수와 메소드를 상받게 된다는 말.
+    public int minus(int v1, int v2) {
+        return v1 - v2;
+    }
+    public int sum(int v1, int v2) {   // 상속받아  메소드도 수정이 가능함. -> 이를 Overriding 이라고 한다.
+        System.out.println("Cal3");
+        return super.sum(v1, v2);
+    }
+}
+```
