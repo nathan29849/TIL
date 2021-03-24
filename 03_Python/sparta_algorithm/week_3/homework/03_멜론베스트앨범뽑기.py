@@ -48,6 +48,7 @@ def get_melon_best_album(genre_array, play_array):
     print(genre_index_play_array_dict)
     # value값을 기준으로 배열
     print(genre_index_play_array_dict.items())
+    print(genre_total_play_dict.items())
     sorted_genre_play_array = sorted(genre_total_play_dict.items(), key=lambda item: item[1], reverse=True)
     # sorted_genre_play_array = sorted(genre_total_play_dict.items(), key=lambda item: -item[1])
     print(sorted_genre_play_array)
