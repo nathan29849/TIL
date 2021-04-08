@@ -7,3 +7,6 @@ def binarySearch(A, item, left, right):
             return binarySearch(A, item, left, mid-1)
         else:
             return binarySearch(A, item, mid+1, right)
+
+    else:
+        return -1
