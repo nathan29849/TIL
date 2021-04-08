@@ -4,7 +4,7 @@ n = len(a)
 
 
 for i in range(n-1, 0, -1):    # 마지막 원소는 자동으로 정렬!
-    sorted_list = True
+    sorted_list = False
     for j in range(i):
         if a[j] >= a[j+1]:
             a[j], a[j+1] = a[j+1], a[j]
