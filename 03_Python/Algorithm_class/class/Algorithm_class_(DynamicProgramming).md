@@ -174,7 +174,7 @@ O(1)만큼의 공간을 사용하기 때문에 `In-place` 알고리즘이다.
 
 ```python
 def dpBinomial(n, k):
-    C = [[0 for j in range(n+1)] for i in range(n+1)]
+    C = [[0 for j in range(k+1)] for i in range(n+1)]
     for i in range(1, n+1):
         for j in range(min(i, k)+1):
             if j == 0 or j == i:
