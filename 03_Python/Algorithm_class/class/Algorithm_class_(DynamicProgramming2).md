@@ -192,7 +192,7 @@ def count(n, k):
     C = [0 for i in range(n+1)]
     C[0] = 1
     for i in range(1, n+1):
-       for j in range(min(n, k+1)): # k가 n보다 클 경우를 대비
+       for j in range(min(n+1, k+1)): # k가 n보다 클 경우를 대비
           if i >= j:
              C[i] += C[i-j]
           else:
