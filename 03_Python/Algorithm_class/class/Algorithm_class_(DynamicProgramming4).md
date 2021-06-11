@@ -137,6 +137,43 @@ Base case
 - A(0, j) = 0 (for 1 ≤ j ≤ m) (i의 index가 0이면 값도 다 0)
 - or A(1, j) = C(1,j) (for 1 ≤ j ≤ m) (i의 index가 1이면 해당 셀의 비용이 그대로 값이 됨)
 
+```python
+import copy
+m, n = map(int, input().split())
+C = []
+for i in range(m):
+    C.append(list(map(int, input().split())))
+
+print(C)
+
+def grid(m, n, C):
+    A = [0 for i in range(n)]
+    for i in range(m-1, -1, -1):
+        temp = copy.deepcopy(A) # 꼭 deepcopy 해주기!
+        # 아래서 temp 값 변경될 때 A도 같은 주소 참조 중이라
+        # temp 변경시 함께 변경 될 수 있음!!
+        for j in range(n):
+            if j == 0 and j < n-1:
+                temp[j] = C[i][j] + min(A[j], A[j+1])
+            elif j == n-1:
+                temp[j] = C[i][j] + min(A[j-1], A[j])
+            else:
+                temp[j] = C[i][j] + min(A[j-1], A[j], A[j+1])
+        print("pre:", temp)
+        A = temp
+        # print("after:",A)
+    return min(A)
+
+print(grid(m, n, C))
+
+
+# 4 5
+# 2 8 9 5 8
+# 4 4 6 2 3
+# 5 7 5 6 1
+# 3 2 5 4 8
+```
+
 시간복잡도 : `O(mn)`
 
 예시 그림 :
