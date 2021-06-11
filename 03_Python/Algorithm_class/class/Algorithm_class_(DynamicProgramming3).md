@@ -49,7 +49,7 @@
 
   - 가중치가 가장 큰 것부터 선택한다고 최적해가 보장되지 않음!
 
-  <img src="https://images.velog.io/images/nathan29849/post/40588983-b5c1-4002-b3ef-8feeb2ad4b21/image.png" width="40%">
+  <img src="https://images.velog.io/images/nathan29849/post/ca432671-fcf9-4e90-80c2-5d104c1a1055/image.png" width="40%">
 
 ---
 
