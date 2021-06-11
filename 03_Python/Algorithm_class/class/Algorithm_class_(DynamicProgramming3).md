@@ -46,6 +46,9 @@
 <img src="https://images.velog.io/images/nathan29849/post/3c04e90c-e1bb-4eb3-b933-fd36af2c6484/image.png" width="40%">
 
 - Greedy 방법은 최적인 해를 보장하지 못한다. (아래 그림 참고)
+
+  - 가중치가 가장 큰 것부터 선택한다고 최적해가 보장되지 않음!
+
   <img src="https://images.velog.io/images/nathan29849/post/40588983-b5c1-4002-b3ef-8feeb2ad4b21/image.png" width="40%">
 
 ---
