@@ -63,6 +63,8 @@ for i = 0 to n-1
 - p\[i] = p\[i-1] (if sum\[i-1] ≥ 0)
 - p\[i] = i (otherwise)
 
+<img src="https://images.velog.io/images/nathan29849/post/2b52184b-bf7a-4de2-afe1-48d1a61ba578/image.png">
+
 ```pseudo
 //sum, num, p는 배열(리스트)
 //sum은 합, num은 수, p는 시작 위치
@@ -77,6 +79,29 @@ for i = 1 to n-1
       p[i] = i
 
 return max(sum) // sum의 원소 중 최댓값 반환
+```
+
+-python code
+
+```python
+def searchLinear(n):
+    sum = [0 for i in range(n)]
+    num = [4, -5, 7, -3, 6, -2, 9, -2, 4, -3, -2, 2, -3, -1, 2, 4]
+    p = [0 for i in range(n)]
+
+    for i in range(1, n):
+        if (sum[i-1] >= 0):
+            sum[i] = sum[i-1] + num[i]
+            p[i] = p[i-1]
+        else:
+            sum[i] = num[i]
+            p[i] = i
+
+    print(p)
+    print(sum)
+    return max(sum)
+
+print(searchLinear(16))
 ```
 
 - 시간 복잡도 : `O(n)`
