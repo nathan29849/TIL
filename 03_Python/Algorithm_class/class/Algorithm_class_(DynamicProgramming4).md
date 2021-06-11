@@ -243,3 +243,43 @@ else
     (Y가 X보다 작을 때 or X가 Y보다 작을 때)
 
 ![](https://images.velog.io/images/nathan29849/post/43a4a051-8311-4893-b859-568f5f0cd4d5/image.png)
+
+```python
+# import copy
+x = "%"+input()
+y = "%"+input()
+
+print(x, y)
+print(len(x), len(y))
+
+def LCS(x, y):
+    C = [[0 for i in range(len(y))] for j in range(len(x))]
+    L = [0 for i in range(len(y))]
+    for i in range(len(x)):
+        # temp = copy.deepcopy(L)
+        for j in range(len(y)):
+            if i == 0 or j == 0:
+                C[i][j] = 0
+            elif x[i] == y[j]:
+                C[i][j] = C[i-1][j-1] + 1
+            else:
+                C[i][j] = max(C[i][j-1], C[i-1][j])
+    print(C)
+    return C[len(x)-1][len(y)-1]
+
+
+
+print(LCS(x, y))
+  %  B  D  C  A  B  A
+[[0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 1, 1, 1],
+ [0, 1, 1, 1, 1, 2, 2],
+ [0, 1, 1, 2, 2, 2, 2],
+ [0, 1, 1, 2, 2, 3, 3],
+ [0, 1, 2, 2, 2, 3, 3],
+ [0, 1, 2, 2, 3, 3, 4],
+ [0, 1, 2, 2, 3, 4, 4]]
+
+# ABCBDAB
+# BDCABA
+```
