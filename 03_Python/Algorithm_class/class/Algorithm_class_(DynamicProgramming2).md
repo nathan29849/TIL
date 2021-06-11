@@ -350,3 +350,26 @@ print(count(3, 10, numList))
   - 10! / 5! \* 5! = 256
 
 <img src="https://images.velog.io/images/nathan29849/post/805c4930-e97d-4a7c-aa75-e33087474fe1/image.png" width="30%">
+
+```python
+def findPath(n, k):
+    C = [[0 for i in range(n+1)] for j in range(n+1)]
+    for i in range(n+1):
+        for j in range(n+1):
+            if i == 0 or j == 0:
+                C[i][j] = 1
+            else:
+                C[i][j] = C[i][j-1] + C[i-1][j]
+
+    print(C)
+    return C[n][k]
+
+print(findPath(5, 5))
+
+[1, 1, 1, 1, 1, 1],
+[1, 2, 3, 4, 5, 6],
+[1, 3, 6, 10, 15, 21],
+[1, 4, 10, 20, 35, 56],
+[1, 5, 15, 35, 70, 126],
+[1, 6, 21, 56, 126, 252]]
+```
