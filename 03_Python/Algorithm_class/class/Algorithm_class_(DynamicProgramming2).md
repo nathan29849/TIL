@@ -309,6 +309,37 @@ def count(n, k):
 <img src="https://images.velog.io/images/nathan29849/post/04cf537c-f77f-4ea7-84a4-a63ac823b41c/image.png" width="30%">
 - C(10, 3) = C(10-5, 3) + C(10, 2) (C3 = 5)
 
+```python
+numList = [0, 1, 3, 5]
+
+def count(n, m, numList):   # n : 거스름돈 개수, m : 거슬러 줘야하는 총 금액
+    C = [[0 for j in range(n+1)] for i in range(m+1)]
+    for i in range(m+1):
+        for j in range(n+1):    # i = 5, j = 0, 1, 2, 3
+            # C[i][j] : 거스름 돈 i를 c1 ~ cj까지 동전들을 이용해서 나눠주는 방법의 수
+            if j == 0:
+                C[i][j] = 0
+            elif j > 0 and i == 0:
+                # 0으로 두면 곤란, 다른 수 이용할 때 쓰이기 때문
+                # 그냥 0원을 거슬러 주는 방법이 0개가 아닌 1개라고 생각하기
+                C[i][j] = 1
+            elif j == 1 and i < numList[1]:
+                # 동전의 최솟값보다 i가 더 작은 경우
+                C[i][j] = 0
+            elif i < numList[j]:
+                # 마지막 동전의 값이 구하려는 값보다 클 때는
+                # 마지막 동전 제외시키기
+                C[i][j] = C[i][j-1]
+            else:
+                x = numList[j] # 마지막 동전을 제외시킬 변수 x 선언
+                C[i][j] = C[i-x][j] + C[i][j-1]
+
+    print(C)
+    return C[m][n]
+
+print(count(3, 10, numList))
+```
+
 ++ 별첨
 
 ### 경로 찾기 문제 (중복순열과 유사)
