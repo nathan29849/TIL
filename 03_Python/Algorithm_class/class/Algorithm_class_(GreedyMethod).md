@@ -203,10 +203,10 @@ Algorithm Greedy Schedule(S, n)
 
 ```pseudo
 Greedy_Knapsack(float P[], float W[], float X[], float M, int n)
-/*P와 D는 P[i]/W[i]에 의하여 내림차순으로 정렬되어 있음*/
+/*P와 W는 P[i]/W[i]에 의하여 내림차순으로 정렬되어 있음*/
 {  float cu;
    int i;
-   for(i = 1; i <= n; i++) X[i] = 0;
+   for(i = 1; i <= n; i++) {X[i] = 0};
    cu = M; i = 1;
    while((W[i] <= cu) &&  (i <= n))
    {  X[i] = 1;
