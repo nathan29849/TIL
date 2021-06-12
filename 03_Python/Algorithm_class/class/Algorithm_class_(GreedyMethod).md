@@ -218,6 +218,8 @@ Greedy_Knapsack(float P[], float W[], float X[], float M, int n)
 }
 ```
 
+<img src="https://images.velog.io/images/nathan29849/post/fef31d9e-44ae-4922-a5ac-4f400c81137c/image.png">
+
 - 정리 : 위의 알고리즘 Greedy_KnapSack은 최적인 해를 항상 구한다.
 
 ### (2) 0/1-배낭 문제 (0/1-Knapsack Problem)
@@ -245,11 +247,9 @@ Greedy_Knapsack(float P[], float W[], float X[], float M, int n)
 - f(i, X) = max{Pi + f(i-1, X-Wi), f(i-1, X)}
 
 - f(n,m) 일 때 O(nm)만큼의 시간 복잡도를 갖는다.
-  - (n개의 짐 검사할 때, m가지의 경우(넣든, 넣지않든 하는 짐) 고려)
-- Polynomail time Algorithm 처럼 보이나 m이 만약 10^9이면, 전체 수행시간이 엄청나게 증가함을 알 수 있다.
+  - (n개의 짐 검사할 때, m가지의 경우(넣든, 넣지않든 하는 짐) 고려)... m : 용량
+- Polynomial time Algorithm 처럼 보이나 m이 만약 10^9이면, 전체 수행시간이 엄청나게 증가함을 알 수 있다.
   - m에 따라 달라짐 -> NP-Complete 문제이다. (입력 값에 따라 좌우됨)
-
-<img src="https://images.velog.io/images/nathan29849/post/fef31d9e-44ae-4922-a5ac-4f400c81137c/image.png">
 
 ---
 
