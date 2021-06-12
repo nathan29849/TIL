@@ -248,6 +248,8 @@ Greedy_Knapsack(float P[], float W[], float X[], float M, int n)
 - Polynomail time Algorithm 처럼 보이나 m이 만약 10^9이면, 전체 수행시간이 엄청나게 증가함을 알 수 있다.
   - m에 따라 달라짐 -> NP-Complete 문제이다. (입력 값에 따라 좌우됨)
 
+<img src="https://images.velog.io/images/nathan29849/post/fef31d9e-44ae-4922-a5ac-4f400c81137c/image.png">
+
 ---
 
 ### NP-Complete (NP 완전 문제)
