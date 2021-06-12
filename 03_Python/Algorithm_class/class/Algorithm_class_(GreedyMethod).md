@@ -245,6 +245,7 @@ Greedy_Knapsack(float P[], float W[], float X[], float M, int n)
 - f(i, X) = max{Pi + f(i-1, X-Wi), f(i-1, X)}
 
 - f(n,m) 일 때 O(nm)만큼의 시간 복잡도를 갖는다.
+  - (n개의 짐 검사할 때, m가지의 경우(넣든, 넣지않든 하는 짐) 고려)
 - Polynomail time Algorithm 처럼 보이나 m이 만약 10^9이면, 전체 수행시간이 엄청나게 증가함을 알 수 있다.
   - m에 따라 달라짐 -> NP-Complete 문제이다. (입력 값에 따라 좌우됨)
 
