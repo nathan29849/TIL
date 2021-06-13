@@ -202,10 +202,10 @@ def dfs3(adjList2, n, v, visited):
    visited[v] = True # color[v] = 'gray'
    print(v, end=' ')
 
-for i in range(len(adjList2[v])):
-   w = adjList2[v][i]
-   if visited[w] == False:
-      dfs3(adjList2, n, w, visited)
+   for i in range(len(adjList2[v])):
+      w = adjList2[v][i]
+      if visited[w] == False:
+         dfs3(adjList2, n, w, visited)
    # visited[v] = 'black'
 
 n, m = map(int, input().split())
