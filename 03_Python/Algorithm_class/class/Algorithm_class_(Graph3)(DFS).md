@@ -345,59 +345,66 @@ Algorithm findPath(map, m, n, start, dest, visited)
 
 ```python
 class Location:
-   def __init__(self, row=0, col=0):
-      self.row = row
-      self.col = col
+    def __init__(self, row=0, col=0):
+        self.row = row
+        self.col = col
 
-def findPath(map, m, n, start, dest, visited):
+
+def findPath(maze, m, n, start, dest, visited):
     next = Location()
-    if map[start.row][start.col] == 0:
+    if maze[start.row][start.col] == "0":
         visited[start.row][start.col] = True
     else:
         return False
 
     if start.row == dest.row and start.col == dest.col:
         return True
-    if (start.col < n-1): # 오른쪽
-        if map[start.row][start.col+1] == 0 and visited[start.row][start.col+1] == False:
+
+    if (start.col < n-1):
+        if maze[start.row][start.col+1] == "0" and visited[start.row][start.col+1] == False:
             next.row = start.row
-            next.col = start.col + 1
-            if findPath(map, m, n, next, dest, visited):
+            next.col = start.col+1
+            if findPath(maze, m, n, next, dest, visited):
                 return True
-    if (start.row < m-1): # 아래쪽
-        if (map[start.row+1][start.col] == 0 and visited[start.row+1][start.col] == False):
-            next.row = start.row + 1
+    if (start.row < m-1):
+        if maze[start.row+1][start.col] == "0" and visited[start.row+1][start.col] == False:
+            next.row = start.row+1
             next.col = start.col
-            if(findPath(map, m, n, next, dest, visited)):
+            if findPath(maze, m, n, next, dest, visited):
                 return True
-    if (start.col > 0): # 왼쪽
-        if (map[start.row][start.col-1] == 0 and visited[start.row][start.col-1] == False):
+    if (start.col > 0):
+        if maze[start.row][start.col-1] == "0" and visited[start.row][start.col-1] == False:
             next.row = start.row
-            next.col = start.col - 1
-            if(findPath(map, m, n, next, dest, visited)):
+            next.col = start.col-1
+            if findPath(maze, m, n, next, dest, visited):
                 return True
-    if (start.row > 0): # 위쪽
-        if (map[start.row-1][start.col] == 0 and visited[start.row-1][start.col] == False):
-            next.row = start.row - 1
+    if (start.col > 0):
+        if maze[start.row-1][start.col] == "0" and visited[start.row-1][start.col] == False:
+            next.row = start.row-1
             next.col = start.col
-            if(findPath(map, m, n, next, dest, visited)):
+            if findPath(maze, m, n, next, dest, visited):
                 return True
 
     return False
 
-start = Location(6, 0)
+start = Location(1, 0)
 dest = Location(5, 11)
-print(start.row, start.col)
-print(dest.row, dest.col)
 
-m = 7
-n = 12
+m, n = 7, 12
 
 maze = []
 for i in range(m):
-    maze.append(list(map(int, input().split())))
+    maze.append(input())
 
-visited = [list(False for j in range(n)) for i in range(m)]
+visited = [list(False for i in range(n))for j in range(m)]
 result = findPath(maze, m, n, start, dest, visited)
 print(result)
+
+# 111111111111
+# 000100100001
+# 101101101101
+# 100000100101
+# 111101111101
+# 100000000000
+# 111111111111
 ```
