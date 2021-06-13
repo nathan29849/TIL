@@ -10,14 +10,14 @@
   - V : 정점(Vertex)들의 집합 (정점 대신 노드를 사용하기도 함)
   - E : 에지(Edge, 간선)들의 집합 (정점들 사이의 관계를 나타냄)
     - E의 원소(에지 or 간선)는 정점들의 쌍 (v, w) `(순서 고려 X)`
-- 방향 그래프(유향 그래프, directed graph or digraph) G는 두 집ㅎ바 V, E로 정의 된다. : G = (V, E)
+- 방향 그래프(유향 그래프, directed graph or digraph) G는 두 집합 V, E로 정의 된다. : G = (V, E)
 
   - V : 정점들의 집합
   - E : 에지들의 집합
-    - Ed의 원소(에지, 유향에지, 간선)는 정점들의 순서쌍 (v, w) `(순서 고려)`
+    - E의 원소(에지, 유향에지, 간선)는 정점들의 순서쌍 (v, w) `(순서 고려)`
 
 - 그래프의 graphical representation
-  - vertex u는 u◦
+  - vertex u는 u🔘
   - (무향) 그래프의 에지 (u, v) : u🔘⎯⎯⎯⎯🔘v
   - 방향 그래프의 에지 (u, v) : u🔘⟶🔘v
 - ex. 그래프 G = (V, E)
@@ -86,7 +86,7 @@
 - v와 w가 인접하다(v is adjacent to w) : 모든 두 정점 사이에 에지가 있는 그래프
 - 에지 (v, w)는 정점 v, w에 부속(incident) 되어있다.
 - 정점 v로 부터 정점 w까지의 경로(path)
-  - v = v0, vk = w인 일련의 정점들 (v0, v1, ..., vk-1, vk)로서 다음 조건을 만족한다.
+  - v0 = v, vk = w인 일련의 정점들 (v0, v1, ..., vk-1, vk)로서 다음 조건을 만족한다.
     - 0≤i≤k-1에 대하여 (vi, vi+1)은 E에 속한다.
     - 이 경로의 길이는 k이다.
 - v0, v1, ..., vk 들이 모두 다르면 이 경로를 단순경로(simple path)라고 함.
@@ -107,7 +107,7 @@
   ![](https://images.velog.io/images/nathan29849/post/d4a3c143-acc8-40e6-8f1d-21e5c1ac4648/image.png)
 - 연결 그래프(connected graph) : 임의의 두 정점 u, v에 대하여, u에서 v까지의 경로가 존재하는 그래프
 - 강연결 (유향) 그래프 (strongly connected graph) : 임의의 두 정점 u,v에 대하여, u에서 v까지 경로가 존재하는 방향 그래프
-- 그래프 G의 (연결) 성분(connected component) : 그래프 G의 최대 연결 부그래프(maximal connecte subgraph of G)
+- 그래프 G의 (연결) 성분(connected component) : 그래프 G의 최대 연결 부그래프(maximal connected subgraph of G)
 - 방향그래프 G의 강연결성분(strongly connected component) : 방향 그래프 G의 최대 강 연결 부그래프(maximal strongly connected subgraph of G)
 
 ![](https://images.velog.io/images/nathan29849/post/c840a693-bfb5-4ce1-9459-705f1fb66567/image.png)
