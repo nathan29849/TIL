@@ -45,7 +45,7 @@
 
 <img src="https://images.velog.io/images/nathan29849/post/cfa48351-e391-47a6-a51e-a6cabdee9739/image.png" width="80%">
 
-### 깊이우선탐색(DFS)을 이용한 위상정렬
+### 깊이우선탐색(DFS)을 이용한 위상정렬, 진입분지수를 이용한 위상정렬(BFS)
 
 - Depth First 골격을 이용하여 위상정렬(역순으로 정점을 출력한다.)
 
