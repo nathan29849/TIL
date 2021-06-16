@@ -51,7 +51,7 @@
 ```python
 class Graph:
    def __init__(self, size):
-      self.adjMatrix = [[0 for j in ranges(size)] for i in range(size)]
+      self.adjMatrix = [[0 for j in range(size)] for i in range(size)]
       self.size = size
 
    def insertEdge(self, v1, v2):
