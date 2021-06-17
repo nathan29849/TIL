@@ -150,7 +150,6 @@ def count(n):
    C = [0 for i in range(n+1)]
    C[0] = 1
    for i in range(1, n+1):
-      C[i] = 0
       for j in range(i):
          C[i] += C[j]
    return C[n]
