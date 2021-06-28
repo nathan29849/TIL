@@ -9,7 +9,7 @@ def Pick(n, m, ballList):
     for i in range(n-1):
         if ballList[i] == ballList[i+1]:
             C[ballList[i]] += 1
-    
+    C = [5, 1, 1]
     for j in range(m+1):
         if C[j] != 1:
             count += (C[j]*(C[j]-1))//2
