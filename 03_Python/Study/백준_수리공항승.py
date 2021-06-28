@@ -4,7 +4,7 @@ from sys import stdin
 
 def repair(n, l, pipe):
     pipe.sort()
-    print(pipe)
+    # print(pipe)
     count = 1   # 테이프 필요 개수 
     cur = pipe[0]
     for i in range(1, n):
