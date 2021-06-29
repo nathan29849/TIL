@@ -46,3 +46,18 @@ new_list = sorted(sample_list, key=lambda item: item[1])
 ```
 
 참고 블로그 : [aonee.log](https://velog.io/@aonee/Python-%EC%A0%95%EB%A0%AC-sort-sorted-reverse)
+
+#### ✌️2개 이상의 원소를 가진 튜플 혹은 리스트 등을 기준에 따라 정렬할 때, 한 가지 기준으로 하는 것은 부정확한 결과를 낳을 수 있다.
+
+<mark><strong>(항상 신경쓰도록 하자!!)<strong></mark>
+
+```python
+# 첫 번째 인덱스만 기준으로 둘 때
+sample_list = [[4, 500], [2, 500], [3, 800]]
+new_list = sorted(sample_list, key=lambda item: item[1])
+print(new_list) # [[4, 500], [2, 500], [3, 800]]
+
+# 첫 번째 인덱스를 기준으로 정렬한 후, 0번 째 인덱스로 나머지를 정렬하여줄 때
+new_list = sorted(sample_list, key=lambda item: (item[1], item[0]))
+print(new_list) # [[2, 500], [4, 500], [3, 800]]
+```
