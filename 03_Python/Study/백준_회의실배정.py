@@ -3,7 +3,7 @@ import sys
 
 def conference(n, time):
     # 회의 시간이 가장 빨리 끝나는 순으로 정렬한다. 
-    newList = sorted(time, key = lambda x : x[1], x[0] )   # 람다로 두 번째 원소 기준 정렬하기(잘 익혀두자..)
+    newList = sorted(time, key = lambda x : (x[1], x[0]) )   # 람다로 두 번째 원소 기준 정렬하기(잘 익혀두자..)
     finishTime = newList[0][1]
     sumNum = 1
     for i in range(1, n):
