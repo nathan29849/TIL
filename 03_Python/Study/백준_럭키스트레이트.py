@@ -1,16 +1,15 @@
+# 백준 18406번
 from sys import stdin
 
-def solution(n):
-    string = str(n)
+def solution(string):
     mid = len(string)//2
     num_1 = string[:mid]
-    num_2 = string[mid:]
+    num_2 = string[mid:-1]
     result_1 = 0
     result_2 = 0
 
     for i in num_1:
         result_1 += int(i)
-
     for j in num_2:
         result_2 += int(j)
     
@@ -20,5 +19,5 @@ def solution(n):
         return "READY"
 
 
-n = int(stdin.readline())
-print(solution(n))
+string = stdin.readline()
+print(solution(string))
