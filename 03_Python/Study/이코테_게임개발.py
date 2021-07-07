@@ -29,7 +29,6 @@ def solution(n, m, col, row, d, visited, game):
             row += dy[back]
             if game[col][row] == 1:
                 return count # 게임 종료
-
     return
 
 n, m = map(int, stdin.readline().split())
