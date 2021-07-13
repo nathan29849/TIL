@@ -1,8 +1,8 @@
-# 백준 1012번
+# 백준 1012번 (DFS)
 import sys
 sys.setrecursionlimit(10**6)
 
-def solution(n, m, k, maze):
+def solution(n, m, maze):
     result = 0
     for i in range(n):
         for j in range(m):
@@ -32,11 +32,10 @@ answer = []
 for i in range(t):
     n, m, k = map(int, sys.stdin.readline().split())
     maze = [[0 for _ in range(m)] for _ in range(n)]
-    # dist = [[False for _ in range(m)] for _ in range(n)]
     for j in range(k):
         col, row = map(int, sys.stdin.readline().split())
         maze[col][row] = 1
-    answer.append(solution(n, m, k, maze))
+    answer.append(solution(n, m, maze))
 
 for i in range(len(answer)):
     print(answer[i])
