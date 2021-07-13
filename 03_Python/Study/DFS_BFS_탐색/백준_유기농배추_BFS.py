@@ -5,7 +5,6 @@ from collections import deque
 def solution(n, m, maze):
     result = 0
     queue = deque()
-    # queue.append((0,0))
 
     dx = [0, -1, 0, +1]
     dy = [+1, 0, -1, 0]
