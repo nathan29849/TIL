@@ -62,10 +62,6 @@ def rgb(queue, matrix, visited):
 
 
 
-
-
-
-
 n = int(stdin.readline())
 matrix = []
 visited = []
