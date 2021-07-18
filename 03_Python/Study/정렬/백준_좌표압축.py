@@ -1,4 +1,4 @@
-# 백준 18870번
+# 백준 18870번 정렬
 from sys import stdin
 def solution(n, arr):
     answer = [0] * n
