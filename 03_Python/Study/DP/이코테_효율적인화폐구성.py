@@ -17,7 +17,7 @@ def solution(wallet, n, m):
         temp = []
         if money[j] == 0:
             for x in wallet:
-                if j >= x:
+                if j >= x:            
                     if money[j-x] != 0:
                         temp.append(money[j-x])
             if len(temp) != 0:
