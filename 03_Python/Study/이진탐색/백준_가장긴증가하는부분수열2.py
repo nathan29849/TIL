@@ -4,24 +4,12 @@ f = stdin.readline
 n = int(f())
 numbers = list(map(int, f().split()))
 
-# def binarySearch(start, end, arr, target):
-#     while start < end:
-#         mid = (start+end)//2
-#         if arr[mid] < target:
-#             start = mid + 1
-#         else:
-#             end = mid
-    
-#     return 
-
-
 def solution(n, arr):
     temp = [arr[0]]
 
     for target in arr:  
         start = 0
         end = len(temp)-1    
-        mid = (start+end)//2
         while start < end:
             mid = (start+end)//2
             if temp[mid] < target:
@@ -31,7 +19,7 @@ def solution(n, arr):
         if temp[-1] < target:
             temp.append(target)
         else:
-            temp[end] = target
+            temp[end] = target  # idx 값으로 start나 end나 상관 없음
     return len(temp)
 
 print(solution(n, numbers))
