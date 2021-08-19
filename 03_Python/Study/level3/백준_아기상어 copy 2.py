@@ -28,14 +28,14 @@ def bfs(n, matrix, start, level):
     answer = 0
     heapq.heappush(queue, (dist, start[0], start[1])) # 거리, 행, 열 순
     matrix[start[0]][start[1]] = 0
-    
             # 상 좌 우 하
     dx = [-1, 0, 0, +1] 
     dy = [0, -1, +1, 0]
     while queue:
         dist, row, col = heapq.heappop(queue)   
-        # visited[row][col] = True                                 
-        if 0 < matrix[row][col] < level:     # 먹을 수 있는 길인지 확인
+        # visited[row][col] = True              # 여기에 이 코드를 넣으면 시간초과가 뜹니다.  
+        # 이유 : 상 좌 우 하 돌 때 미리 안넣어주면 아래 for문에서 이미 봤던 칸을 또 집어 넣을 수 있게 됨.                     
+        if 0 < matrix[row][col] < level:        # 먹을 수 있는 길인지 확인
             # 초기화
             queue = []
             matrix[row][col] = 0
@@ -46,9 +46,7 @@ def bfs(n, matrix, start, level):
             feed += 1
             if feed == level:
                 level += 1
-                feed = 0
-        # else:
-        #     visited[row][col] = True          여기에 이 코드를 넣으면 시간초과가 뜹니다.      
+                feed = 0     
                 
         for i in range(4):
             x = row + dx[i]
