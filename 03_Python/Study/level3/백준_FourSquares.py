@@ -1,11 +1,9 @@
 # 백준 17626번 Four Squares
 from sys import stdin
-import time
 input = stdin.readline
 
 n = int(input())
 dp = [0] * (n+1)
-# start = time.time()
 i = 1
 squareArr = []
 while i**2 <= n:

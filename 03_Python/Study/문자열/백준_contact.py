@@ -34,9 +34,9 @@ def solution(radio):
                         continue
                     else:
                         count += 1
-                        b = c
                         if count > 1:
                             break
+                        b = c
                         c = now
                 if count == 2:
                     if len(arr) > 0:
