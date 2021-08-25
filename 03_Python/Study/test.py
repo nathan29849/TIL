@@ -10,6 +10,6 @@ for i in range(n):
         if len(arr) == 0:
             print(0)
         else:
-            print(heapq.heappop())
+            print(heapq.heappop(arr))
     else:
-        heapq.heappush(m)
+        heapq.heappush(arr, m)
