@@ -29,24 +29,28 @@ def solution(radio):
                 return "NO"
             if a == "1" and b == "0" and c== "0":
                 while arr:
-                    now = arr.popleft()
+                    now = arr.popleft()  
                     if now == c:
                         continue
                     else:
                         count += 1
                         if count > 1:
+                            # b = c
                             break
                         b = c
                         c = now
                 if count == 2:
-                    if len(arr) > 0:
-                        temp = arr.popleft()
-                        arr.appendleft(temp)
-                        arr.appendleft(now)
-                        if temp == now and b != "0":
-                            arr.appendleft(c)
-                    else:
-                        arr.appendleft(now)
+                    print("b, c, now", b, c, now)
+                    arr.appendleft(now)
+                    # if len(arr) > 0:
+                    #     temp = arr.popleft()
+                    #     arr.appendleft(temp)
+                    #     arr.appendleft(now)
+                    #     if temp == now and b != "0":
+                    #         print(b)
+                    #         arr.appendleft(c)
+                    # else:
+                    #     arr.appendleft(now)
                 elif count == 1:
                     pass
                 else:
