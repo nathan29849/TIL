@@ -24,7 +24,7 @@ class Graph:
             temp.flag = True
         else:
             if temp.flag == True:
-                return False
+                return 
         for i in range(1, len(string)):
             S = int(string[i])
             if temp.next[S] is None:
