@@ -5,7 +5,7 @@ input = stdin.readline
 A, B = map(int, input().split())
 count = 1
 flag = False
-while B > 0:
+while A < B:
     if str(B)[-1] == "1":
         B = int(str(B)[:-1])    # 마지막 1 제거
     else:
