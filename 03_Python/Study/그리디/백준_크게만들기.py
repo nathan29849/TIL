@@ -3,22 +3,13 @@ from sys import stdin
 input = stdin.readline
 
 n, k = map(int, input().split())
-number = input().rstrip()
+number = list(map(int, input().rstrip()))
 arr = []
 
 for i in range(n):
-    arr.append(int(number[i]))
-    
-count = 0
-pre = 0
-for i in range(k):
-    for i in range(pre, len(arr)-1):
-        if arr[i] < arr[i+1]:
-            if i != 0:
-                pre = i-1
-            arr.pop(i)
-            count += 1
-            break
+    while 
+
+
 
 if count < k:
     arr = arr[:len(arr)-(k-count)]
@@ -28,5 +19,3 @@ for k in range(len(arr)):
     result+=str(arr[k])
 
 print(result)
-
-            
