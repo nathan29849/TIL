@@ -5,17 +5,17 @@ input = stdin.readline
 n, k = map(int, input().split())
 number = list(map(int, input().rstrip()))
 arr = []
-
+stack = []
+cnt = 0
 for i in range(n):
-    while 
+    while len(stack)>0 and stack[-1] < number[i] and 0 < k:
+        stack.pop()
+        k -= 1
+    stack.append(number[i])
 
+while 0 < k:
+    stack.pop()
+    k -= 1
 
-
-if count < k:
-    arr = arr[:len(arr)-(k-count)]
-
-result = ""
-for k in range(len(arr)):
-    result+=str(arr[k])
-
+result = "".join(map(str, stack))
 print(result)
