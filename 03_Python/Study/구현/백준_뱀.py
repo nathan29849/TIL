@@ -16,6 +16,7 @@ for i in range(k):
 
 l = int(input())
 time = deque(["P"]*(n**2 + 1))
+print(time)
 for i in range(l):
     a, b = map(str, input().split())
     time[int(a)] = b

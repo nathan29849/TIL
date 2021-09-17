@@ -16,7 +16,7 @@ dx = [-1, 0, +1, 0]
 dy = [0, +1, 0, -1]
 
 # 후진
-    # 북 동 남 서
+        # 북 동 남 서
 bx = [+1, 0, -1, 0]
 by = [0, -1, 0, +1]
 count = 1
@@ -33,17 +33,14 @@ def clean(R, C, D):
             matrix[new_R][new_C] = 2 # 청소 완료
             q.append([new_R, new_C, new_D])
             return False
-    return new_R, new_C, new_D
+    return True
 
 while q:
-    flag = True
     R, C, D = q.popleft()
     result = clean(R, C, D)
-    if result != False:
-        if matrix[R+bx[D]][C+by[D]] == 1:   # 후진 시 벽이 아니라면
+    if result != False:     # 청소를 못했다면
+        if matrix[R+bx[D]][C+by[D]] == 1:   # 후진 시 벽이라면
             break    
         else:
             q.append([R+bx[D], C+by[D], D])
-            # clean(R+bx[D], C+by[D], D)
 print(count)
-# print(matrix)

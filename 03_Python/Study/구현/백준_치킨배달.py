@@ -18,6 +18,7 @@ for i in range(n):
             home.append([i, j])
 
 arr = list(combinations(chicken, m))   # 최대 보유할 수 있는 치킨집의 개수(m)만큼의 조합
+print(arr)
 final = int(1e9)
 while arr:
     distance = [int(1e9)] * len(home)  # 각 1(집)에대한 2(치킨집)까지의 거리 

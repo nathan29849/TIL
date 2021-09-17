@@ -1,27 +1,75 @@
-from itertools import combinations
-import sys
-input = sys.stdin.readline
-
-n, m = map(int, input().split())
-chicken = [list(map(int, input().split())) for _ in range(n)]
-
-home_index = []
-chicken_index = []
-for i in range(len(chicken)):
-    for j in range(len(chicken[i])):
-        if chicken[i][j] == 1:
-            home_index.append((i+1, j+1))
-        elif chicken[i][j] == 2:
-            chicken_index.append((i+1, j+1))
-
-sum_result = []
-final = int(1e9)
-for i in combinations(chicken_index, m):
-    next_result = [int(1e9) for _ in range(len(home_index))]
-    for j in range(len(i)):
-        for k in range(len(home_index)):
-            next_result[k] = min(next_result[k], abs(home_index[k][0]-i[j][0]) + abs(home_index[k][1]-i[j][1]))
-        if final > sum(next_result):
-            final = sum(next_result)
-
-print(final)
+n, k = int(input()), int(input())
+game = [[0] * n for _ in range(n)]
+apple = [list(map(int, input().split())) for _ in range(k)]
+for i in range(len(apple)): game[apple[i][0]-1][apple[i][1]-1] = 1
+turn = int(input())
+turn_list = sorted([list(map(str, input().split())) for _ in range(turn)], key=lambda x:int(x[0]))
+sec = 0
+body = [[0, 0]]
+loc = 'East'
+while True:
+    sec += 1
+    if loc == 'East':
+        if [body[-1][0], body[-1][1]+1] not in body and 0 <= body[-1][1]+1 < n:
+            body.append([body[-1][0], body[-1][1]+1])
+        else:
+            print(sec)
+            break
+        if game[body[-1][0]][body[-1][1]] != 1:
+            body.pop(0)
+        else:
+            game[body[-1][0]][body[-1][1]] = 0
+        if len(turn_list) > 0:
+            if sec == int(turn_list[0][0]):
+                loc = 'South' if turn_list[0][1] == 'D' else 'North'
+                turn_list.pop(0)
+    elif loc == 'South':
+        if [body[-1][0]+1, body[-1][1]] not in body and 0 <= body[-1][0]+1 < n:
+            body.append([body[-1][0]+1, body[-1][1]])
+        else:
+            print(sec)
+            break
+        if game[body[-1][0]][body[-1][1]] != 1:
+            body.pop(0)
+        else:
+            game[body[-1][0]][body[-1][1]] = 0
+        if len(turn_list) > 0:
+            if sec == int(turn_list[0][0]):
+                loc = 'West' if turn_list[0][1] == 'D' else 'East'
+                turn_list.pop(0)
+    elif loc == 'North':
+        if [body[-1][0]-1, body[-1][1]] not in body and 0 <= body[-1][0]-1 < n:
+            body.append([body[-1][0]-1, body[-1][1]])
+        else:
+            print(sec)
+            break
+        if game[body[-1][0]][body[-1][1]] != 1:
+            body.pop(0)
+        else:
+            game[body[-1][0]][body[-1][1]] = 0
+        if len(turn_list) > 0:
+            if sec == int(turn_list[0][0]):
+                loc = 'East' if turn_list[0][1] == 'D' else 'West'
+                turn_list.pop(0)
+    else:
+        if [body[-1][0], body[-1][1]-1] not in body and 0 <= body[-1][1]-1 < n:
+            body.append([body[-1][0], body[-1][1]-1])
+        else:
+            print(sec)
+            break
+        if game[body[-1][0]][body[-1][1]] != 1:
+            body.pop(0)
+        else:
+            game[body[-1][0]][body[-1][1]] = 0
+        if len(turn_list) > 0:
+            if sec == int(turn_list[0][0]):
+                loc = 'North' if turn_list[0][1] == 'D' else 'South'
+                turn_list.pop(0)
+# 5
+# 0
+# 5
+# 4 D
+# 8 D
+# 12 D
+# 15 D
+# 20 L
