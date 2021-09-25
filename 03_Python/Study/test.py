@@ -1,29 +1,21 @@
-from sys import stdin
-input = stdin.readline
-t = int(input())
-for _ in range(t):
-    arr = []
-    string = input().rstrip()
-    while True:
-        temp = list(map(str, input().split()))
-        if len(temp) == 1 and temp[0] == "END":
-            break
-        else:
-            arr.append(temp)
+# def leaf_function(f):
+#     result = f + 1
+#     if f > 5:
+#         return result
+#     else:
+#         temp = leaf_function(result)
+#         print(temp)
+#         return temp
 
-    for i in arr:
-        temp = ""
-        command, a, b = i
-        b = int(b)
-        if command == "I":
-            if b == len(string):
-                temp = string + a
-            else:
-                for j in range(len(string)):
-                    if j == b:
-                        temp += a
-                    temp += string[j]
-            string = temp
-        else:
-            print(string[int(a):b+1])
+    
+# def main():
+#     leaf_function(1)
+#     return 0
 
+# main()
+
+def fact(n):
+    if n < 1:
+        return 1
+    else:
+        return n * fact(n-1)
