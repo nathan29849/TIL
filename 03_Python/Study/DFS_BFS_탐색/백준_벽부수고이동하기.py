@@ -22,65 +22,47 @@ for i in range(n):
 # 동 남 서 북
 dx = [0, +1, 0, -1]
 dy = [+1, 0, -1, 0]
-
-# 가능성 있는 벽 추려내기 ( 상하좌우를 살펴서 부수는게 의미가 있을 벽들 골라내기 )
-for ox, oy in one:
-    null_ctx = 0
-    wall_ctx = 0
-    for i in range(4):
-        nx = ox + dx[i]
-        ny = oy + dy[i]
-        if 0<= nx < n and 0<= ny < m:
-            if matrix[nx][ny] == 1:
-                wall_ctx += 1
-        else:
-            null_ctx += 1
-    if wall_ctx >= 3 or (wall_ctx == 2 and null_ctx >= 1) or (wall_ctx == 1 and null_ctx == 2):
-        continue
-    else:
-        final_one.append((ox, oy))
-
-
-
-start = (0, 0, 1)   # 0,0에서 출발
-answer = int(1e9)
-
-def bfs(start, matrix):
+start = (0, 0, 0)   # x = 0, y = 0, d = 1, crash = 0
+def bfs(start):
+    answer = int(1e9)
+    global matrix
+    # global visited
+    visited = [[[0]*2 for _ in range(m)]for _ in range(n)]
+    visited[0][0][0] = 1
     q = deque([start])
     while q:
-        x, y, d = q.popleft()
+        x, y, crash= q.popleft()
+        if x == n-1 and y == m-1:
+            answer = min(answer, visited[x][y][crash])               
+            return answer
         for i in range(4):
-            x += dx[i]
-            y += dy[i]
-            if 0<= x < n and 0<= y < m:
-                if matrix[x][y] == 0:
-                    if x == n-1 and y == m-1:   # 목적지 도착시                                                
-                        return True
-                    else:
-                        q.append((x, y, d+1))
-                        matrix[x][y] = 2
-            x -= dx[i]
-            y -= dy[i]
+            nx = x+dx[i]
+            ny = y+dy[i]
+            if 0 <= nx < n and 0 <= ny < m:
+                if matrix[nx][ny] == 0 and visited[nx][ny][crash] == 0:
+                    q.append((nx, ny, crash))
+                    visited[nx][ny][crash] = visited[x][y][crash] + 1
+                elif matrix[nx][ny] == 1 and crash == 0: 
+                    q.append((nx, ny, crash+1))
+                    visited[nx][ny][crash+1] = visited[x][y][crash] + 1   
     return False
 
-# 그냥 벽을 안 없앨 때
-result = bfs(start, copy.deepcopy(matrix))
+result = bfs(start)
 if result:
-    answer = result
-
-# print(final_one)
-# 벽 하나 제외시키는 경우
-flag = False
-for ox, oy in final_one:
-    temp_matrix = copy.deepcopy(matrix)
-    temp_matrix[ox][oy] = 0
-    result = bfs(start, temp_matrix)
-    if result:
-        flag = True
-
-if flag:
-    print(answer)
+    print(result)
 else:
     print(-1)
 
 
+# 8 8
+# 01000100
+# 01010100
+# 01010100
+# 01010100
+# 01010100
+# 01010100
+# 01010100
+# 00010100
+
+# 1 1
+# 0
