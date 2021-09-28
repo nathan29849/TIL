@@ -28,6 +28,8 @@ def bfs(start):
     global matrix
     # global visited
     visited = [[[0]*2 for _ in range(m)]for _ in range(n)]
+    print(visited)
+    
     visited[0][0][0] = 1
     q = deque([start])
     while q:
