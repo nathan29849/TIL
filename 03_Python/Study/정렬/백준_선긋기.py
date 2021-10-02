@@ -9,7 +9,7 @@ for _ in range(n):
 lines.sort()    # sort
 result = [lines[0]]
 for i in range(1, n):
-    if result[-1][1] < lines[i][0]:         # 시작점이 r의 끝점보다 클 때
+    if result[-1][1] < lines[i][0]:         # 시작점이 전체 result의 끝점보다 클 때
         result.append(lines[i])
     else:
         for r in result:
@@ -24,4 +24,22 @@ for s,e in result:
     answer += abs(e - s)
 print(answer)
 
+
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+numlist = sorted([list(map(int, input().split())) for _ in range(n)])
+leng = numlist[0][1] - numlist[0][0]
+target = numlist[0][1]
+
+for i in range(1, len(numlist)):
+    if numlist[i][0] <= target < numlist[i][1]:
+        leng += numlist[i][1] - target
+        target = numlist[i][1]
+    elif numlist[i][0] > target:
+        leng += numlist[i][1] - numlist[i][0]
+        target = numlist[i][1]
+
+print(leng)
 
