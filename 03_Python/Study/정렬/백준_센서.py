@@ -19,3 +19,4 @@ else:
         temp.pop(0)
     
     print(sum(temp))
+
