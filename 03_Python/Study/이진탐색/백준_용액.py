@@ -9,30 +9,19 @@ arr = sorted(list(map(int, input().split())))
 
 start = 0
 end = n-1
-result = []
-final = int(1e9)
-final_arr = []
-def search(start, end):
-    global final
-    global final_arr
-    global arr
-    
+final = abs(arr[start] + arr[end])
+final_arr = [arr[start], arr[end]]
+while start < end:
     temp = abs(arr[start] + arr[end])
     if temp < final:
         final = temp
         final_arr = [arr[start], arr[end]]
-
-    if temp == 0:
-        return final_arr
-    elif temp < 0:   # 합이 음수
-        if end+1 < n:
-            search(start, end+1)
-        search(start + 1, end)
+    if arr[start] + arr[end] == 0:
+        break
+    elif arr[start] + arr[end] < 0:   # 합이 음수
+        start += 1
     else: # temp > 0 .. 합이 양수
-        if start-1 < 0:
-            search(start-1, end)
-        search(start, end-1)
+        end -= 1
 
-    return final_arr
-print(search(start, end))
-# print(final_arr)
+print(final_arr[0], end=" ")
+print(final_arr[1])
