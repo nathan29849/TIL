@@ -19,23 +19,19 @@ heights = [0 for _ in range(h+1)]
 for i in range(n):
     temp = int(input())
     if i % 2 == 0:
-        # 석순
-        mite.append(temp) 
+        mite.append(temp) # 석순
     else:
-        # 종유석
-        tite.append(temp)
+        tite.append(temp) # 종유석
 
 mite.sort()   # 석순 오름차순 정렬
 tite.sort()   # 종유석 오름차순 정렬
 
 for i in range(1, h+1):
     r = binarySearch_LowerBound(0, n//2, mite, i)
-    # print("i :", i, "r :", r)
     heights[i] += n//2 - r
 
 for i in range(h, 0, -1):
     r = binarySearch_LowerBound(0, n//2, tite, h-i+1)
-    # print("i :", i, "r :", r)
     heights[i] += n//2 - r
 
 min_num = min(heights[1:])
