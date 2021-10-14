@@ -1,7 +1,6 @@
-# 백준 2343번 기타레슨
+# 백준 2343번 기타레슨 (블루레이 크기를 조절)
 from sys import stdin
 import copy
-import math
 input = stdin.readline
 
 n, m = map(int, input().split())
@@ -10,9 +9,9 @@ video = list(map(int, input().split()))
 def upper_bound(arr, target):
     start = 0
     end = len(arr)
-    while start < end:
+    while start <= end:
         mid = (start + end)//2
-        if arr[mid] <= target:
+        if arr[mid] < target:
             start = mid + 1
         else:
             end = mid
@@ -25,30 +24,28 @@ def accumulate(arr):
         acc[i] += acc[i-1]
     return acc
 
-count = 1
-acc = accumulate(video)
-result = []
-t = math.ceil(acc[-1]/m)
-if m == 1:
-    result = acc
-else:
-    while count < m-1:
-        count += 1
-        idx = upper_bound(acc, t)
-        # print(acc)
-        # print(idx, t)
-        result.append(acc[idx-1])
+original_acc = accumulate(video)
+blu_ray = original_acc[-1]//m
+original_video = video
+while True:
+    result = []
+    acc = original_acc
+    video = original_video
+    for _ in range(m-1):
+        idx = upper_bound(acc, blu_ray)
+        if len(acc) == 0:
+            result.append(0)
+        else:
+            result.append(acc[idx-1])
         video = video[idx:]
-        print(video)
         acc = accumulate(video)
-    # 2개로 나누기
-    idx = upper_bound(acc, t)
-    r1 = max(sum(video[:idx]), sum(video[idx:]))
-    r2 = max(sum(video[:idx+1]), sum(video[idx+1:]))
-    r3 = min(r1, r2)
-    result.append(r3)
-print(result)
-print(max(result))
+    result.append(sum(video))
+    if max(result) > blu_ray:
+        blu_ray += 1
+    else:
+        print(blu_ray)
+        break
+# print(result)
 
 
 # 9 3
