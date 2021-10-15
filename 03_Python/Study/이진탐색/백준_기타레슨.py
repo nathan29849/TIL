@@ -7,50 +7,53 @@ input = stdin.readline
 n, m = map(int, input().split())
 video = list(map(int, input().split()))
 
-def upper_bound(arr, target):
-    start = 0
-    end = len(arr)
-    while start < end:
-        mid = (start + end)//2
-        if arr[mid] <= target:
-            start = mid + 1
+start = max(video)
+end = sum(video) + 1
+result = 10**9 + 1
+while start <= end:
+    mid = (start + end)//2
+    temp = 0
+    total = 0
+    for v in range(len(video)):
+        if temp + video[v] <= mid:
+            temp += video[v]
+            if v == n-1:
+                total += 1
         else:
-            end = mid
-    return start
+            total += 1
+            temp = video[v]
+            if v == n-1 and temp <= mid:
+                total += 1
+    # for i in range(len(video)):
+    #     if temp+video[i] > mid:
+    #         total+=1
+    #         temp=0
+    #     temp+=video[i]
+    # if temp:
+    #     total+=1    
+    if total <= m:
+        end = mid - 1
+        # if total == m:    ... 이것 때문에 100%에서 틀렸음.. 왜 그런 것일까? 
+        # ... m개를 집어 넣지 못하는 경우에도 정답이 될 수 있나? 그런것같긴 함 
+        # 왜냐하면, 부족한 경우에는 이미 들어간 것을 쪼개면 되기 때문
+        # 그에 대한 반례가 100%에 들어있었던 것 같음
+        result = min(mid, result)
+    else: # 줄여야 함 (total < m)
+        start = mid + 1
 
-def accumulate(arr):
-    n = len(arr)
-    acc = copy.deepcopy(video)
-    for i in range(1, n):       # 누적합
-        acc[i] += acc[i-1]
-    return acc
-
-count = 1
-acc = accumulate(video)
-result = []
-t = math.ceil(acc[-1]/m)
-if m == 1:
-    result = acc
+if result < 10**9 + 1:
+    print(result)
 else:
-    while count < m-1:
-        count += 1
-        idx = upper_bound(acc, t)
-        # print(acc)
-        # print(idx, t)
-        result.append(acc[idx-1])
-        video = video[idx:]
-        print(video)
-        acc = accumulate(video)
-    # 2개로 나누기
-    idx = upper_bound(acc, t)
-    r1 = max(sum(video[:idx]), sum(video[idx:]))
-    r2 = max(sum(video[:idx+1]), sum(video[idx+1:]))
-    r3 = min(r1, r2)
-    result.append(r3)
-print(result)
-print(max(result))
+    print(max(video))
 
+# 8 7
+# 3 3 10 10 3 2 6 2
 
+# 5 2
+# 1 1 1 1 100
+
+# 7 7
+# 1 5 9 9 9 2 9
 # 9 3
 # 1 2 3 4 5 6 7 8 9
 # [15, 13, 17]
