@@ -1,3 +1,4 @@
+# 백준 1940번 주몽
 from sys import stdin
 input = stdin.readline
 n = int(input())
@@ -13,12 +14,11 @@ for i in range(n):
         dic[arr[i]] += 1
     else:
         dic[arr[i]] = 1
-print(dic)        
+
 # 두 개로 갑옷을 만들 수 있는지 여부 체크
 for i in range(n):
     now = m - arr[i]
     if dic.get(now):
-        print(now)
         if dic[now] > 0:
             dic[now] -= 1
             cnt += 1
