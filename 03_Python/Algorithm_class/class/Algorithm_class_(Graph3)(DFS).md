@@ -102,7 +102,7 @@ dfs1(adjMatrix, n, 0, visited) # 정점 0 부터 시작
 ```python
 class Node:
    def __init__(self, v):
-      self.vertex = v
+      self.vertex = vertex
       self.next = None
 
 def dfs2(adjList1, n, v, visited):
