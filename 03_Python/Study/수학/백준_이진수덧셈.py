@@ -70,7 +70,7 @@ for a, b in arr:
         if temp == 1:
             result.append("1")
     flag = False
-    print(result)
+    # print(result)
     for i in range(len(result)-1, 0, -1):
         if flag == False:
             if result[i] == "1":
