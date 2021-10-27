@@ -14,4 +14,4 @@ for i in range(arr):
     # 스티커가 범위 안에 들어갈 수 있다면
     if (h >= a and w >= b) or (h >= b and w >= a):
         temp = a * b
-
+        
