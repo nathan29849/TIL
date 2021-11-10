@@ -1,5 +1,9 @@
-for i in range(1, 6, 1):
-    for j in range(5, 5-i, -1):
-        print(j, end="")
-    print()
-    
+from sys import stdin
+import math
+input = stdin.readline
+
+n = int(input())
+for i in range(n):
+    r, n = map(int, input().split())
+    result = math.factorial(n)//(math.factorial(r) * math.factorial(n-r))
+    print(result)
