@@ -28,7 +28,6 @@ def solution(edges, sum_number, parents):
 
     print(sum_number-result)
 
-
 while True:
     edges = []
     sum_number = 0
